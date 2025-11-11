@@ -1,0 +1,15 @@
+.container {
+    padding-left: 0 !important;
+}
+
+.mobileContainer {
+    padding-right: 0 !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerFill {
+    flex: 1;
+    min-height: 0;
+}

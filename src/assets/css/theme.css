@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Poppins');
+
+* {
+  font-family: system-ui, 'Poppins', 'Outfit', sans-serif !important;
+}
