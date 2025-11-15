@@ -1,0 +1,45 @@
+@import "../../assets/scss/variables";
+
+.container{
+    position: relative;
+    left: 50%;
+    top: 125px;
+    transform: translateX(-110%);
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+    line-height: 0;
+
+    padding: 3rem;
+}
+
+.typescript {
+    color: $soft-gray;
+}
+
+.header {
+    font-weight: 450;
+    color: $white;
+}
+
+.bash {
+    color: $neon-lilac-50;
+    font-weight: 450;
+}
+
+.typingText {
+    width: 0;
+    white-space: nowrap;
+    animation:
+        blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to{
+        color: transparent;
+    }
+    50% {
+        color: $neon-lilac-50;
+    }
+}

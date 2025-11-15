@@ -1,0 +1,14 @@
+@import "../assets/scss/variables";
+
+.page {
+  position: relative;
+}
+
+.section {
+  min-height: 75vh;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  border: 0.1rem solid $soft-gray;
+  margin: -0.1rem 1.25rem;
+  margin-bottom: 0;
+}

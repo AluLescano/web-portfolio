@@ -1,0 +1,99 @@
+@import "../../assets/scss/variables";
+
+.socialWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  margin: 1.25rem;
+  margin-top: -0.1rem;
+
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+
+  border: 1px solid $soft-gray;
+  border-radius: 0 0 1.5rem 1.5rem;
+
+  font-size: 1rem;
+  color: $soft-gray;
+}
+
+.socialGroup {
+  display: flex;
+  align-items: stretch;
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  text-decoration: none;
+  color: $soft-gray;
+  border-right: 1px solid $soft-gray;
+}
+
+.label {
+  border-right: none;
+}
+
+.link {
+  gap: 0.5rem;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $white;
+    .socialIcon {
+      color: $white;
+    }
+  }
+}
+
+.left {
+  .socialItem.link:first-of-type {
+    border-left: 1px solid $soft-gray;
+  }
+}
+
+.right {
+  .socialItem {
+    border-left: 1px solid $soft-gray;
+    border-right: none;
+  }
+}
+
+.socialGlows {
+  background-color: transparent;
+  box-shadow: none;
+
+  transition:
+    background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.github-color {
+  border-radius: 0 0 1.5rem 0;
+}
+
+.linkedin-color:hover {
+  @extend .socialGlows;
+  background-color: $clr-linkedin;
+  box-shadow: 0 0 2rem 0.1rem $clr-linkedin;
+}
+.instagram-color:hover {
+  @extend .socialGlows;
+  background-color: $clr-instagram;
+  box-shadow: 0 0 2rem 0.1rem $clr-instagram;
+}
+.github-color:hover {
+  @extend .socialGlows;
+  background-color: $clr-github;
+  box-shadow: 0 0 2rem 0.1rem $clr-github;
+}
+
+.socialIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: $soft-gray;
+  transition: color 0.2s ease-in-out;
+}
