@@ -1,17 +1,21 @@
 // COMPONENTS
-import Slideshow from "@/ui/Slideshow/slideshow"
-import Footer from "@/ui/Footer/footer"
-import Image from "next/image"
+import HeaderTitle from "@/ui/HeaderTitle/headerTitle"
 
-import styles from "@/ui/home.module.css"
+// ASSETS
+import styles from "@/ui/section.module.scss"
 
 export default function Home() {
+  const { section, siteLogo } = styles
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Slideshow/>
-        <Footer/>
-      </main>
+    <div className={section}>
+      <div>
+        <HeaderTitle
+          preTitle="Hola! Soy"
+          title="Alessia Lescano"
+          subTitle="> Desarrolladora Front-end"
+          typeWriter
+        />{" "}
+      </div>
     </div>
   )
 }
