@@ -1,0 +1,17 @@
+.layoutContainer {
+  /* This is the magic line that fixes your "broken" layout */
+  position: relative;
+  display: flex; 
+  }
+
+.sidebar {
+  width: 18rem; /* Give your sidebar a fixed width */
+  flex-shrink: 0;
+  margin-left: 1.25rem;
+}
+
+.content {
+    width: 100%;
+  flex-grow: 1; /* Makes the content fill the rest of the space */
+  margin-left: -1.3rem;
+}

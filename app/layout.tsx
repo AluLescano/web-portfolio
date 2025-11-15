@@ -4,8 +4,8 @@
 import { usePathname } from "next/navigation"
 
 // COMPONENTS
-import Navbar from "@/ui/Navbar/navbar"
-import Socials from "@/ui/Socialbar/socials"
+import Navbar from "@/ui/Bars/Navbar/navbar"
+import Socials from "@/ui/Bars/Socialbar/socials"
 import Footer from "@/ui/Footer/footer"
 import Image, { StaticImageData } from "next/image"
 
@@ -31,7 +31,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const pathname = usePathname()
-  const bgImage = bgImages[pathname] || home
+  // 1. Get all the base paths from bgImages
+  const basePaths = Object.keys(bgImages)
+  // 2. Sort them by length, descending (e.g., ["/contact", "/about", "/works", "/"])
+  basePaths.sort((a, b) => b.length - a.length)
+  // 3. Find the first (longest) base path that the current pathname starts with
+  const matchingPath = basePaths.find((path) => pathname.startsWith(path))
+  // 4. Use the matching path to get the image, or default to home
+  const bgImage = (
+    matchingPath ? bgImages[matchingPath] : home
+  ) as StaticImageData
 
   return (
     <html lang="es-la">

@@ -1,4 +1,4 @@
-@import "../assets/scss/variables";
+@use "../assets/scss/variables";
 
 .page {
   position: relative;
@@ -8,7 +8,7 @@
   min-height: 75vh;
   background-color: transparent;
   backdrop-filter: blur(15px);
-  border: 0.1rem solid $soft-gray;
+  border: 0.1rem solid variables.$soft-gray;
   margin: -0.1rem 1.25rem;
   margin-bottom: 0;
 }

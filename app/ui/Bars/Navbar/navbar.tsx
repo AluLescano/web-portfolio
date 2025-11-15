@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation"
 // ASSETS
 import { comicNeue, fira } from "@/ui/fonts"
 
-import styles from "@/ui/Navbar/navbar.module.scss"
+import styles from "@/ui/Bars/Navbar/navbar.module.scss"
 
 const navLinks = [
   { name: "_Home", href: "/" },
@@ -18,7 +18,7 @@ const navLinks = [
   { name: "_Proyectos", href: "/works" },
 ]
 
-const contact = { name: "_Contacta_me", href: "/contact" }
+const contact = { name: "_Contactame", href: "/contact" }
 
 export default function NavLinks() {
   const { navWrapper, siteLogo, navLink, navLinkActive, contactLink } = styles

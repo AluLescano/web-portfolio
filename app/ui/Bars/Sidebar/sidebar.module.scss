@@ -1,0 +1,66 @@
+@use "../../../assets/scss/variables";
+
+.sidebarContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  margin-top: -0.1rem;
+}
+
+.blankspace {
+  height: 100%;
+  width: 3rem;
+  border: 0.1rem solid variables.$soft-gray;
+}
+
+.menuesContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 0.1rem solid variables.$soft-gray;
+}
+
+
+.folderToggleIcon {
+  color: variables.$soft-gray;
+}
+
+.folderToggle {
+  display: flex;
+  padding: 0.5rem 0.5rem;
+
+  align-items: center;
+  gap: 0.5rem;
+
+  border-top: 0.1rem solid variables.$soft-gray;
+  border-bottom: 0.1rem solid variables.$soft-gray;
+}
+
+.folderContent {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  gap: 0.25rem;
+}
+
+.subFolderToggle,
+.fileLinkContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: variables.$soft-gray;
+  text-decoration: none;
+}
+
+.active {
+  color: variables.$white;
+}
+
+.subFolderContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}

@@ -1,4 +1,4 @@
-@import "../../assets/scss/variables";
+@use "../../assets/scss/variables";
 
 .container{
     position: relative;
@@ -15,16 +15,16 @@
 }
 
 .typescript {
-    color: $soft-gray;
+    color: variables.$soft-gray;
 }
 
 .header {
     font-weight: 450;
-    color: $white;
+    color: variables.$white;
 }
 
 .bash {
-    color: $neon-lilac-50;
+    color: variables.$neon-lilac-50;
     font-weight: 450;
 }
 
@@ -40,6 +40,6 @@
         color: transparent;
     }
     50% {
-        color: $neon-lilac-50;
+        color: variables.$neon-lilac-50;
     }
 }

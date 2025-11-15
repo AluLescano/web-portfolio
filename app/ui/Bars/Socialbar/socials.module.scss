@@ -1,4 +1,4 @@
-@import "../../assets/scss/variables";
+@use "../../../assets/scss/variables";
 
 .socialWrapper {
   position: relative;
@@ -12,11 +12,11 @@
   background-color: transparent;
   backdrop-filter: blur(15px);
 
-  border: 1px solid $soft-gray;
+  border: 1px solid variables.$soft-gray;
   border-radius: 0 0 1.5rem 1.5rem;
 
   font-size: 1rem;
-  color: $soft-gray;
+  color: variables.$soft-gray;
 }
 
 .socialGroup {
@@ -29,8 +29,8 @@
   align-items: center;
   padding: 0 1.25rem;
   text-decoration: none;
-  color: $soft-gray;
-  border-right: 1px solid $soft-gray;
+  color: variables.$soft-gray;
+  border-right: 1px solid variables.$soft-gray;
 }
 
 .label {
@@ -42,22 +42,22 @@
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: $white;
+    color: variables.$white;
     .socialIcon {
-      color: $white;
+      color: variables.$white;
     }
   }
 }
 
 .left {
   .socialItem.link:first-of-type {
-    border-left: 1px solid $soft-gray;
+    border-left: 1px solid variables.$soft-gray;
   }
 }
 
 .right {
   .socialItem {
-    border-left: 1px solid $soft-gray;
+    border-left: 1px solid variables.$soft-gray;
     border-right: none;
   }
 }
@@ -77,23 +77,23 @@
 
 .linkedin-color:hover {
   @extend .socialGlows;
-  background-color: $clr-linkedin;
-  box-shadow: 0 0 2rem 0.1rem $clr-linkedin;
+  background-color: variables.$clr-linkedin;
+  box-shadow: 0 0 2rem 0.1rem variables.$clr-linkedin;
 }
 .instagram-color:hover {
   @extend .socialGlows;
-  background-color: $clr-instagram;
-  box-shadow: 0 0 2rem 0.1rem $clr-instagram;
+  background-color: variables.$clr-instagram;
+  box-shadow: 0 0 2rem 0.1rem variables.$clr-instagram;
 }
 .github-color:hover {
   @extend .socialGlows;
-  background-color: $clr-github;
-  box-shadow: 0 0 2rem 0.1rem $clr-github;
+  background-color: variables.$clr-github;
+  box-shadow: 0 0 2rem 0.1rem variables.$clr-github;
 }
 
 .socialIcon {
   width: 1.75rem;
   height: 1.75rem;
-  color: $soft-gray;
+  color: variables.$soft-gray;
   transition: color 0.2s ease-in-out;
 }

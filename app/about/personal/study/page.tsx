@@ -1,10 +1,9 @@
 // COMPONENTS
-import Sidebar from "@/ui/Bars/Sidebar/sidebar"
 
 // ASSETS
 import styles from "@/ui/section.module.scss"
 
-export default function About() {
+export default function Study() {
   const { section } = styles
   return (
     <div className={section}>

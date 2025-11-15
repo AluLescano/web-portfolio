@@ -8,6 +8,7 @@ interface Props {
   title: string
   subTitle?: string
   typeWriter?: boolean
+  className?: string
 }
 
 export default function HeaderTitle({
@@ -15,10 +16,11 @@ export default function HeaderTitle({
   title,
   subTitle,
   typeWriter,
+  className,
 }: Props) {
   const { container, typescript, header, bash, typingText } = styles
   return (
-    <div className={container}>
+    <div className={`${container} ${className}`}>
       {preTitle && (
         <p className={`${fira.className} ${typescript}`}>{preTitle}</p>
       )}

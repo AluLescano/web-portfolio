@@ -10,7 +10,7 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
 
-import styles from "@/ui/Socialbar/socials.module.scss"
+import styles from "@/ui/Bars/Socialbar/socials.module.scss"
 
 const socialLinks = [
     {
