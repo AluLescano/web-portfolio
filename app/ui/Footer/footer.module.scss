@@ -1,0 +1,13 @@
+@import "@/assets/scss/variables";
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: $footer;
+
+    text-align: center;
+    font-size: 1rem;
+    color: $ofuscate;
+}
