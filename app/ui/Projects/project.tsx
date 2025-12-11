@@ -33,12 +33,19 @@ const Project = ({ project }: ProjectProps) => {
     <>
       <div className={container}>
         <div className={`${fira.className} ${projectNameContainer}`}>
-          <p><span>{`Project ${project.id}`}</span> {`// ${project.title}`}</p>
+          <p>
+            <span>{`Project ${project.id}`}</span> {`// ${project.title}`}
+          </p>
         </div>
         <div className={projectContainer}>
           {project.thumbnail && (
             <Image
-              style={{width:"100%", maxHeight:"150px", objectFit: "cover"}}
+              style={{
+                width: "100%",
+                minHeight: "150px",
+                maxHeight: "150px",
+                objectFit: "cover",
+              }}
               className={projectThumbnail}
               src={project.thumbnail}
               alt={project.alt}
@@ -46,15 +53,17 @@ const Project = ({ project }: ProjectProps) => {
           )}
           <div className={`${fira.className} ${projectDescription}`}>
             {project.description}
-            <Button
-              variant="primary"
-              type="button"
-              href={`${project.href}${!project.externalLink ? `/${project.title}` : ""}`}
-              externalLink={project.externalLink}
-              target={project.externalLink ? "_blank" : "_self"}
-            >
-              ver-proyecto
-            </Button>
+            <div>
+              <Button
+                variant="primary"
+                type="button"
+                href={`${project.href}${!project.externalLink ? `/${project.title}` : ""}`}
+                externalLink={project.externalLink}
+                target={project.externalLink ? "_blank" : "_self"}
+              >
+                ver-proyecto
+              </Button>
+            </div>
           </div>
         </div>
       </div>

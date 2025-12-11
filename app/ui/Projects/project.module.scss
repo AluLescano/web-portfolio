@@ -16,7 +16,8 @@
   }
 
   .projectContainer {
-    border:0.5px solid vars.$button-glass;
+    min-height: 18.5rem;
+    border: 0.5px solid vars.$button-glass;
     border-radius: 1rem;
     background-color: vars.$bg-darker;
 
@@ -27,7 +28,6 @@
     .projectDescription {
       display: flex;
       flex-direction: column;
-      text-align: center;
       border-top: 0.5px solid vars.$button-glass;
       padding: 1rem;
       gap: 1rem;
@@ -35,6 +35,11 @@
 
       p {
         color: vars.$soft-gray;
+        text-align: center;
+      }
+      
+      div {
+        bottom: 0;
       }
     }
   }

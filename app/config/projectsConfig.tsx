@@ -24,8 +24,31 @@ export const projectsConfig = [
     alt: "psico-zephyr website",
     description: (
       <p>
-        Servicios de terapia y bienestar mental Disponible en Chile, sesiones
-        online.
+        Servicios de terapia y bienestar mental.
+      </p>
+    ),
+    href: "/works",
+  },
+    {
+    id: "3",
+    title: "psico-zephyr",
+    thumbnail: psicoZephyr,
+    alt: "psico-zephyr website",
+    description: (
+      <p>
+        Servicios de terapia y bienestar mental.
+      </p>
+    ),
+    href: "/works",
+  },
+    {
+    id: "4",
+    title: "psico-zephyr",
+    thumbnail: psicoZephyr,
+    alt: "psico-zephyr website",
+    description: (
+      <p>
+        Servicios de terapia y bienestar mental.
       </p>
     ),
     href: "/works",
