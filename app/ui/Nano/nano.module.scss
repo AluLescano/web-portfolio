@@ -1,0 +1,147 @@
+@use "../../assets/scss/variables" as vars;
+
+.editorContainer {
+  border-right: 0.1rem solid vars.$soft-gray;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.editorContent {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  height: 100%;
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: vars.$bg-dark;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: vars.$soft-gray;
+    border-radius: 0.25rem;
+
+    &:hover {
+      background: vars.$neon-lilac-100;
+    }
+  }
+}
+
+.lineNumbersClass {
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$bg-dark;
+  padding: 1rem 0.75rem;
+  border-right: 0.1rem solid vars.$soft-gray;
+  user-select: none;
+  flex-shrink: 0;
+
+  span {
+    color: rgba(vars.$soft-gray, 0.6);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: right;
+    min-height: 1.3125rem;
+  }
+}
+
+.codeContent {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  overflow-x: auto;
+  min-width: 0;
+
+  pre {
+    margin: 0;
+    color: vars.$white;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+.codeLine {
+  min-height: 1.3125rem;
+
+  &:empty::before {
+    content: "\00a0";
+  }
+}
+
+.highlight {
+  color: vars.$neon-lilac-50;
+  font-weight: 500;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: vars.$cyan;
+  margin-left: 0.1rem;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+// Responsive styles
+@media (max-width: 1024px) {
+  .lineNumbersClass {
+    padding: 1rem 0.5rem;
+
+    span {
+      font-size: 0.8125rem;
+    }
+  }
+
+  .codeContent {
+    padding: 1rem 1rem;
+
+    pre {
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .lineNumbersClass {
+    padding: 0.75rem 0.4rem;
+
+    span {
+      font-size: 0.75rem;
+    }
+  }
+
+  .codeContent {
+    padding: 0.75rem;
+
+    pre {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .lineNumbersClass {
+    span {
+      font-size: 0.7rem;
+    }
+  }
+
+  .codeContent {
+    padding: 0.5rem;
+
+    pre {
+      font-size: 0.7rem;
+    }
+  }
+}

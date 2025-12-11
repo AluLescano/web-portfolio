@@ -1,4 +1,4 @@
-@use "../assets/scss/variables";
+@use "../assets/scss/variables" as vars;
 
 .page {
   position: relative;
@@ -7,8 +7,14 @@
 .section {
   min-height: 75vh;
   background-color: transparent;
-  backdrop-filter: blur(15px);
-  border: 0.1rem solid variables.$soft-gray;
-  margin: -0.1rem 1.25rem;
-  margin-bottom: 0;
+  backdrop-filter: blur(25px);
+  border: 0.1rem solid vars.$soft-gray;
+  margin: 0 1.25rem;
+  margin-top: -0.1rem;
+}
+
+.siteLogo {
+  font-size: x-large;
+  margin-top: 10rem;
+  margin-left: 13rem;
 }

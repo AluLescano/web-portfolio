@@ -1,7 +1,7 @@
 "use client"
 
 // CLIENT DEPENDENCIES
-import { useState, ReactNode } from "react"
+import { useState, ReactNode, memo } from "react"
 import { usePathname } from "next/navigation"
 
 // COMPONENTS
@@ -18,6 +18,9 @@ import {
 
 import styles from "@/ui/Bars/Sidebar/sidebar.module.scss"
 
+// TYPES
+import { SidebarConfig, SidebarItem, SidebarSection } from "@/types/sidebar"
+
 const {
   folder,
   folderToggle,
@@ -33,13 +36,13 @@ const {
   menuesContainer,
 } = styles
 
+// ===== CATEGORY FOLDER COMPONENT =====
 interface CategoryFolderProps {
-  name: string
-  children: ReactNode
+  section: SidebarSection
 }
 
-const CategoryFolder = ({ name, children }: CategoryFolderProps) => {
-  const [isOpen, setIsOpen] = useState(true)
+const CategoryFolder = memo(({ section }: CategoryFolderProps) => {
+  const [isOpen, setIsOpen] = useState(section.defaultOpen ?? true)
 
   return (
     <div className={folder}>
@@ -47,24 +50,31 @@ const CategoryFolder = ({ name, children }: CategoryFolderProps) => {
         className={`${fira.className} ${folderToggle}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? (
-          <FontAwesomeIcon className={folderToggleIcon} icon={faChevronDown} />
-        ) : (
-          <FontAwesomeIcon className={folderToggleIcon} icon={faChevronRight} />
-        )}
-        {name}
+        <FontAwesomeIcon 
+          className={folderToggleIcon} 
+          icon={isOpen ? faChevronDown : faChevronRight} 
+        />
+        {section.name}
       </div>
-      {isOpen && <div className={folderContent}>{children}</div>}
+      {isOpen && (
+        <div className={folderContent}>
+          {section.items.map((item, index) => (
+            <SidebarItemRenderer key={`${item.name}-${index}`} item={item} />
+          ))}
+        </div>
+      )}
     </div>
   )
-}
+})
 
+CategoryFolder.displayName = 'CategoryFolder'
+
+// ===== SUBFOLDER COMPONENT =====
 interface SubFolderProps {
-  name: string
-  children: ReactNode
+  item: SidebarItem
 }
 
-const SubFolder = ({ name, children }: SubFolderProps) => {
+const SubFolder = memo(({ item }: SubFolderProps) => {
   const [isOpen, setIsOpen] = useState(true)
 
   return (
@@ -73,63 +83,76 @@ const SubFolder = ({ name, children }: SubFolderProps) => {
         className={`${fira.className} ${subFolderToggle}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? (
-          <FontAwesomeIcon className={folderToggleIcon} icon={faChevronDown} />
-        ) : (
-          <FontAwesomeIcon className={folderToggleIcon} icon={faChevronRight} />
-        )}
+        <FontAwesomeIcon 
+          className={folderToggleIcon} 
+          icon={isOpen ? faChevronDown : faChevronRight} 
+        />
         <FontAwesomeIcon className={iconClass} icon={faFolder} />
-        {name}
+        {item.name}
       </div>
-      {isOpen && <div className={subFolderContent}>{children}</div>}
+      {isOpen && (
+        <div className={subFolderContent}>
+          {item.children?.map((child, index) => (
+            <SidebarItemRenderer key={`${child.name}-${index}`} item={child} />
+          ))}
+        </div>
+      )}
     </div>
   )
-}
+})
 
+SubFolder.displayName = 'SubFolder'
+
+// ===== FILE LINK COMPONENT =====
 interface FileLinkProps {
-  name: string
-  href: string
+  item: SidebarItem
 }
 
-const FileLink = ({ name, href }: FileLinkProps) => {
+const FileLink = memo(({ item }: FileLinkProps) => {
   const pathname = usePathname()
-  const isActive = pathname === href
+  const isActive = pathname === item.href
+
+  if (!item.href) {
+    console.warn(`FileLink "${item.name}" missing href`)
+    return null
+  }
 
   return (
     <Link
-      href={href}
+      href={item.href}
       className={`${fira.className} ${fileLinkContainer} ${isActive ? active : ""}`}
     >
       <FontAwesomeIcon className={folderToggleIcon} icon={faChevronRight} />
       <FontAwesomeIcon className={iconClass} icon={faFolder} />
-      {name}
+      {item.name}
     </Link>
   )
+})
+
+FileLink.displayName = 'FileLink'
+
+// ===== ITEM RENDERER =====
+const SidebarItemRenderer = ({ item }: { item: SidebarItem }) => {
+  if (item.type === 'folder') {
+    return <SubFolder item={item} />
+  }
+  return <FileLink item={item} />
 }
 
-// --- Your Sidebar ---
-export default function Sidebar() {
-  return (
-    <>
-      <div className={sidebarContainer}>
-        <div className={blankspace} />
-        <div className={menuesContainer}>
-          <CategoryFolder name="info-personal">
-            <FileLink name="bio" href="/about/personal" />
-            <SubFolder name="educacion">
-              <FileLink name="estudios" href="/about/personal/study" />
-              <FileLink
-                name="certificados"
-                href="/about/personal/certificates"
-              />
-            </SubFolder>
-          </CategoryFolder>
+// ===== MAIN SIDEBAR COMPONENT =====
+interface SidebarProps {
+  config: SidebarConfig
+}
 
-          <CategoryFolder name="info-profesional">
-            <FileLink name="trayectoria" href="/about/professional" />
-          </CategoryFolder>
-        </div>
+export default function Sidebar({ config }: SidebarProps) {
+  return (
+    <div className={sidebarContainer}>
+      <div className={blankspace} />
+      <div className={menuesContainer}>
+        {config.sections.map((section, index) => (
+          <CategoryFolder key={`${section.name}-${index}`} section={section} />
+        ))}
       </div>
-    </>
+    </div>
   )
 }

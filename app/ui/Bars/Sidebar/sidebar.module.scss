@@ -1,62 +1,96 @@
-@use "../../../assets/scss/variables";
+@use "../../../assets/scss/variables" as vars;
 
+// ===== MAIN CONTAINER =====
 .sidebarContainer {
+  width: 20rem;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  margin-top: -0.1rem;
   background-color: transparent;
   backdrop-filter: blur(15px);
-  margin-top: -0.1rem;
 }
 
+// ===== BLANK SPACE (LEFT BORDER AREA) =====
 .blankspace {
-  height: 100%;
   width: 3rem;
-  border: 0.1rem solid variables.$soft-gray;
+  height: 100%;
+  border: 0.1rem solid vars.$soft-gray;
+  border-right: none;
 }
 
+// ===== MENUES CONTAINER =====
 .menuesContainer {
+  flex: 1;
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  border: 0.1rem solid variables.$soft-gray;
+  border: 0.1rem solid vars.$soft-gray;
 }
 
-
-.folderToggleIcon {
-  color: variables.$soft-gray;
-}
-
+// ===== FOLDER SECTION (TOP LEVEL) =====
 .folderToggle {
   display: flex;
-  padding: 0.5rem 0.5rem;
-
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: vars.$bg-darker;
+  border-top: 0.1rem solid vars.$soft-gray;
+  border-bottom: 0.1rem solid vars.$soft-gray;
+  color: vars.$white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 
-  border-top: 0.1rem solid variables.$soft-gray;
-  border-bottom: 0.1rem solid variables.$soft-gray;
+  &:hover {
+    background-color: vars.$bg-dark;
+  }
 }
 
 .folderContent {
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  gap: 0.25rem;
 }
 
-.subFolderToggle,
-.fileLinkContainer {
+// ===== ICONS =====
+.folderToggleIcon {
+  color: vars.$soft-gray;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.iconClass {
+  color: vars.$soft-gray;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+// ===== SHARED STYLES FOR SUBFOLDER & FILE LINKS =====
+%interactive-item {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  color: variables.$soft-gray;
+  padding: 0.25rem 0;
+  color: vars.$soft-gray;
   text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: vars.$white;
+  }
 }
 
-.active {
-  color: variables.$white;
+.subFolderToggle {
+  @extend %interactive-item;
+}
+
+.fileLinkContainer {
+  @extend %interactive-item;
+
+  &.active {
+    color: vars.$white;
+    font-weight: 500;
+  }
 }
 
 .subFolderContent {

@@ -1,45 +1,28 @@
-@use "../../assets/scss/variables";
+@use "../../assets/scss/variables" as vars;
 
 .container{
     position: relative;
-    left: 50%;
-    top: 125px;
-    transform: translateX(-110%);
     display: flex;
     flex-direction: column;
 
     width: fit-content;
-    line-height: 0;
 
-    padding: 3rem;
-}
+    p {
+        font-size: x-large;
+        color: vars.$soft-gray;
+    }
 
-.typescript {
-    color: variables.$soft-gray;
+    h1 {
+        font-size: xx-large;
+    }
 }
 
 .header {
     font-weight: 450;
-    color: variables.$white;
+    color: vars.$white;
 }
 
 .bash {
-    color: variables.$neon-lilac-50;
+    color: vars.$neon-lilac-50;
     font-weight: 450;
-}
-
-.typingText {
-    width: 0;
-    white-space: nowrap;
-    animation:
-        blink 0.75s step-end infinite;
-}
-
-@keyframes blink {
-    from, to{
-        color: transparent;
-    }
-    50% {
-        color: variables.$neon-lilac-50;
-    }
 }

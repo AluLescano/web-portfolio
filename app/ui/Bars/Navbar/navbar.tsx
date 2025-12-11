@@ -18,11 +18,12 @@ const navLinks = [
   { name: "_Proyectos", href: "/works" },
 ]
 
-const contact = { name: "_Contactame", href: "/contact" }
+const contact = { name: "_Contacto", href: "/contact" }
 
 export default function NavLinks() {
   const { navWrapper, siteLogo, navLink, navLinkActive, contactLink } = styles
   const pathname = usePathname()
+  
   return (
     <>
       <nav className={navWrapper}>
@@ -31,19 +32,34 @@ export default function NavLinks() {
             KatyaDesign
           </Link>
           {navLinks.map((link) => {
+            
+            let isActive = false
+            if (link.href === "/") {
+              isActive = pathname === "/"
+            } else {
+              isActive = pathname.startsWith(link.href)
+            }
+
             return (
-            <Link
+              <Link
                 key={link.name}
                 href={link.href}
-                className={clsx(fira.className, navLink, { [navLinkActive]: pathname === link.href })}
-            >
+                className={clsx(fira.className, navLink, {
+                  [navLinkActive]: isActive, 
+                })}
+              >
                 {link.name}
-            </Link>
+              </Link>
             )
           })}
         </div>
         <div>
-          <Link href={contact.href} className={`${fira.className} ${navLink} ${contactLink}`}>
+          <Link
+            href={contact.href}
+            className={clsx(fira.className, navLink, contactLink, {
+              [navLinkActive]: pathname.startsWith(contact.href)
+            })}
+          >
             {contact.name}
           </Link>
         </div>
