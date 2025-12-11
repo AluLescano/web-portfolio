@@ -22,9 +22,26 @@
     border: 0.5px solid vars.$button-glass;
     border-radius: 1rem;
     background-color: vars.$bg-darker;
+    position: relative;
 
     .projectThumbnail {
       border-radius: 1rem 1rem 0 0;
+    }
+
+    .iconClass {
+      position: absolute;
+      right: 0;
+      z-index: 10;
+
+      svg {
+        position: relative;
+        width: fit-content;
+        background-color: vars.$ofuscate;
+        border-radius: 50%;
+        padding: 0.5rem;
+        font-size: 1.25rem;
+        color: vars.$bg-light;
+      }
     }
 
     .projectDescription {
@@ -40,7 +57,7 @@
         color: vars.$soft-gray;
         text-align: center;
       }
-      
+
       div {
         margin-top: auto;
       }

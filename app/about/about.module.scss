@@ -47,12 +47,12 @@
   flex-direction: column;
   max-width: 100%;
   width: 100%;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   gap: 1rem;
 
   h1 {
     font-size: 1.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: vars.$comment;
   }
 
@@ -67,7 +67,7 @@
   width: fit-content;
   max-width: 100%;
   align-self: center;
-  margin: 1rem 0;
+  margin: 0 0 0.75rem;
   padding: 1rem 1.5rem;
   background-color: rgba(vars.$button-glass, 0.2);
   border: 0.1rem solid vars.$soft-gray;
@@ -127,6 +127,11 @@
     overflow-wrap: break-word;
     color: vars.$white;
   }
+}
+
+.nanoWrapper {
+  height: 100%;
+  width: 100%;
 }
 
 // Responsive adjustments for tablets and smaller devices

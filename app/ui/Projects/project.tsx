@@ -1,5 +1,9 @@
 // TYPES
-import { ReactNode } from "react"
+import { ReactElement, ReactNode } from "react"
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+
+// UTILS
+import isFontAwesomeIcon from "@/utils/isFontAwesomeIcon"
 
 // COMPONENTS
 import Image, { StaticImageData } from "next/image"
@@ -7,6 +11,8 @@ import Button from "../Button/button"
 
 // ASSETS
 import { fira } from "@/ui/fonts"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 import styles from "./project.module.scss"
 
 interface ProjectProps {
@@ -19,6 +25,7 @@ interface ProjectProps {
     button?: string
     href: string
     externalLink?: boolean
+    icon?: ReactElement | IconDefinition
   }
 }
 
@@ -29,7 +36,23 @@ const Project = ({ project }: ProjectProps) => {
     projectContainer,
     projectThumbnail,
     projectDescription,
+    iconClass,
   } = styles
+
+  // Render the appropriate icon
+  const renderIcon = () => {
+    if (!project.icon) {
+      return null
+    }
+
+    if (isFontAwesomeIcon(project.icon)) {
+      return <FontAwesomeIcon className={iconClass} icon={project.icon} />
+    }
+
+    // It's a React element
+    return project.icon
+  }
+
   return (
     <>
       <div className={container}>
@@ -52,6 +75,7 @@ const Project = ({ project }: ProjectProps) => {
               alt={project.alt}
             />
           )}
+          <div className={iconClass}>{renderIcon()}</div>
           <div className={`${fira.className} ${projectDescription}`}>
             {project.description}
             <div>

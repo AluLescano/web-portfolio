@@ -1,6 +1,9 @@
 // ASSETS
 import almarentals from "@/assets/img/website-thumbnails/website-almarentals.jpg"
 import psicoZephyr from "@/assets/img/website-thumbnails/website-psico-zephyr.png"
+import katyadesign from "@/assets/img/website-thumbnails/website-katyadesign.png"
+
+import { faStar, faMobileScreen, faPenRuler } from "@fortawesome/free-solid-svg-icons"
 
 /**
  * Configuration for the Project Thumbnails in Works Section
@@ -16,7 +19,9 @@ export const projectsConfig = [
     ),
     button: "ver-pagina",
     href: "https://almarentals.com.ar",
-    externalLink: true
+    externalLink: true,
+    category: "paginas_favoritas",
+    icon: faStar
   },
   {
     id: "2",
@@ -29,5 +34,20 @@ export const projectsConfig = [
       </p>
     ),
     href: "/works",
+    category: "paginas_favoritas",
+    icon: faStar
   },
+  {
+    id: "3",
+    title: "katyaDesign-v1",
+    thumbnail: katyadesign,
+    alt: "KatyaDesign v1",
+    description: (
+      <p>Primera versión del portfolio</p>
+    ),
+    href: "/works",
+    category: "demos",
+    icon: faPenRuler
+  },
+  
 ]

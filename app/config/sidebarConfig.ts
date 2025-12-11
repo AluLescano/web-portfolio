@@ -1,4 +1,5 @@
 import { SidebarConfig } from "@/types/sidebar"
+import { faStar, faMobileScreen, faPenRuler } from "@fortawesome/free-solid-svg-icons"
 
 /**
  * Configuration for the "About" section sidebar
@@ -56,49 +57,22 @@ export const worksSidebarConfig: SidebarConfig = {
       defaultOpen: true,
       items: [
         {
-          type: "folder",
+          type: "file",
           name: "paginas_favoritas",
-          children: [
-            {
-              type: "file",
-              name: "psico-zephyr",
-              href: "/works/psico-zephyr",
-            },
-          ],
+          filterValue: "paginas_favoritas",
+          icon: faStar,
         },
-        /* {
-          type: "folder",
-          name: "apps",
-          children: [
-            {
-              type: "file",
-              name: "weather-app",
-              href: "/works/weatherApp",
-            },
-            {
-              type: "file",
-              name: "pc-widgets",
-              href: "/works/widgets",
-            },
-            {
-              type: "file",
-              name: "organizador",
-              href: "/works/organizer",
-            },
-          ],
-        }, */
         {
-          type: "folder",
+          type: "file",
+          name: "apps",
+          filterValue: "apps",
+          icon: faMobileScreen,
+        },
+        {
+          type: "file",
           name: "demos",
-          children: [
-            {
-              type: "folder",
-              name: "katyaDesign",
-              children: [
-                { type: "file", name: "v1", href: "/works/katyaDesignv1" },
-              ],
-            },
-          ],
+          filterValue: "demos",
+          icon: faPenRuler,
         },
       ],
     },
