@@ -1,0 +1,100 @@
+@use "../../../assets/scss/variables" as vars;
+
+// ===== MAIN CONTAINER =====
+.sidebarContainer {
+  width: 20rem;
+  height: 100%;
+  display: flex;
+  margin-top: -0.1rem;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+}
+
+// ===== BLANK SPACE (LEFT BORDER AREA) =====
+.blankspace {
+  width: 3rem;
+  height: 100%;
+  border: 0.1rem solid vars.$soft-gray;
+  border-right: none;
+}
+
+// ===== MENUES CONTAINER =====
+.menuesContainer {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 0.1rem solid vars.$soft-gray;
+}
+
+// ===== FOLDER SECTION (TOP LEVEL) =====
+.folderToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: vars.$bg-darker;
+  border-top: 0.1rem solid vars.$soft-gray;
+  border-bottom: 0.1rem solid vars.$soft-gray;
+  color: vars.$white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: vars.$bg-dark;
+  }
+}
+
+.folderContent {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+// ===== ICONS =====
+.folderToggleIcon {
+  color: vars.$soft-gray;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.iconClass {
+  color: vars.$soft-gray;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+// ===== SHARED STYLES FOR SUBFOLDER & FILE LINKS =====
+%interactive-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0;
+  color: vars.$soft-gray;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: vars.$white;
+  }
+}
+
+.subFolderToggle {
+  @extend %interactive-item;
+}
+
+.fileLinkContainer {
+  @extend %interactive-item;
+
+  &.active {
+    color: vars.$white;
+    font-weight: 500;
+  }
+}
+
+.subFolderContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}

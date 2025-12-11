@@ -1,4 +1,4 @@
-@import "../../assets/scss/variables";
+@use "../../../assets/scss/variables";
 
 .navWrapper {
   display: flex;
@@ -7,7 +7,7 @@
 
   background-color: transparent;
   backdrop-filter: blur(15px);
-  border: 0.1rem solid $soft-gray;
+  border: 0.1rem solid variables.$soft-gray;
   border-radius: 1rem 1rem 0 0;
   margin: 1.25rem;
   margin-bottom: 0;
@@ -22,17 +22,17 @@
   border-top-left-radius: 1rem;
 
   box-shadow:
-    0 0 5px $neon-blue-50,
-    0 0 15px $neon-blue-50,
-    0 0 20px $neon-blue-50,
-    inset 0 0 5px $neon-blue-50;
+    0 0 5px variables.$neon-blue-50,
+    0 0 15px variables.$neon-blue-50,
+    0 0 20px variables.$neon-blue-50,
+    inset 0 0 5px variables.$neon-blue-50;
 
   text-shadow:
-    0 0 5px $neon-blue-50,
-    0 0 10px $neon-blue-50;
+    0 0 5px variables.$neon-blue-50,
+    0 0 10px variables.$neon-blue-50;
 
   text-decoration: none;
-  color: $neon-blue-50;
+  color: variables.$neon-blue-50;
   font-size: 1.5rem;
   font-weight: 500;
 
@@ -40,8 +40,8 @@
   animation: ease-in-out 0.6s 1 forwards;
 
   &:hover {
-    color: $bg-dark;
-    background-color: $neon-blue-50;
+    color: variables.$bg-dark;
+    background-color: variables.$neon-blue-50;
 
     border-radius: 15rem;
 
@@ -67,8 +67,8 @@
 
   text-decoration: none;
   font-size: 1.25rem;
-  color: $soft-gray;
-  border-left: 0.1rem solid $soft-gray;
+  color: variables.$soft-gray;
+  border-left: 0.1rem solid variables.$soft-gray;
 
   transition: color 0.2s ease-in-out;
 
@@ -79,7 +79,7 @@
     left: 0;
     right: 0;
     bottom: 7px;
-    background-color: $white;
+    background-color: variables.$white;
 
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -89,7 +89,7 @@
   }
 
   &:hover {
-    color: $white;
+    color: variables.$white;
     &::after {
       -webkit-transform: scaleX(0.75);
       transform: scaleX(0.75);
@@ -97,7 +97,7 @@
   }
 
   &:last-child {
-    border-right: 0.1rem solid $soft-gray;
+    border-right: 0.1rem solid variables.$soft-gray;
   }
 }
 
@@ -106,9 +106,9 @@
 }
 
 .navLinkActive {
-  color: $white;
+  color: variables.$white;
 
   &::after {
-    background-color: $neon-blue-100;
+    background-color: variables.$neon-blue-100;
   }
 }

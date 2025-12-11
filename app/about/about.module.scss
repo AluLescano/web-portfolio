@@ -1,0 +1,170 @@
+@use "../assets/scss/variables" as vars;
+
+.layoutContainer {
+  display: flex;
+  min-height: 75vh;
+  position: relative;
+  margin: 0 1.25rem;
+  margin-top: -0.1rem;
+}
+
+.sidebar {
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  border: 0.1rem solid vars.$soft-gray;
+  margin-left: -0.1rem;
+  overflow: hidden;
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContainer {
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: left;
+  overflow: hidden;
+}
+
+.welcomeSection {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+
+  h1 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: vars.$comment;
+  }
+
+  p {
+    color: vars.$soft-gray;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+}
+
+.commandPrompt {
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  background-color: rgba(vars.$button-glass, 0.2);
+  border: 0.1rem solid vars.$soft-gray;
+  border-radius: 0.5rem;
+
+  p {
+    color: vars.$cyan;
+  }
+}
+
+.fileTree {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 1rem;
+
+  li {
+    margin-bottom: 0.75rem;
+    color: vars.$bg-light;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    strong {
+      color: vars.$white;
+      margin: 0 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  .subBranch {
+    margin: -0.5rem;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+}
+
+.code {
+  max-width: 100%;
+  overflow-x: auto;
+  color: vars.$cyan;
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  p {
+    margin: 0 1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: vars.$white;
+  }
+}
+
+// Responsive adjustments for tablets and smaller devices
+@media (max-width: 1024px) {
+  .welcomeSection {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .commandPrompt {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .code {
+    font-size: 0.9rem;
+
+    p {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .layoutContainer {
+    margin: 0 0.5rem;
+  }
+
+  .pageContainer {
+    padding: 0 0.75rem;
+  }
+
+  .welcomeSection {
+    h1 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .code {
+    font-size: 0.85rem;
+    p {
+      padding-right: 1rem;
+    }
+  }
+}
