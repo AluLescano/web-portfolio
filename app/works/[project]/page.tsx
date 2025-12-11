@@ -7,14 +7,12 @@ import { projectsConfig } from "@/config/projectsConfig"
 // ASSETS
 import styles from "@/works/works.module.scss"
 
-export default function Home() {
+export default function projectPage() {
   const { pageContainer, scrollerContainer } = styles
   return (
     <div className={pageContainer}>
       <div className={scrollerContainer}>
-        {projectsConfig.map((project) => (
-          <Project key={project.id} project={project}/>
-        ))}
+            Esto es un test
       </div>
     </div>
   )
