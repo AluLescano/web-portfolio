@@ -16,6 +16,7 @@ interface ProjectProps {
     thumbnail: string | StaticImageData
     alt: string
     description: string | ReactNode
+    button?: string
     href: string
     externalLink?: boolean
   }
@@ -61,7 +62,7 @@ const Project = ({ project }: ProjectProps) => {
                 externalLink={project.externalLink}
                 target={project.externalLink ? "_blank" : "_self"}
               >
-                ver-proyecto
+                {project.button ?? "ver-proyecto"}
               </Button>
             </div>
           </div>

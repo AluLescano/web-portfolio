@@ -2,7 +2,7 @@
 
 .layoutContainer {
   display: flex;
-  min-height: 75vh;
+  height: 75vh;
   position: relative;
   margin: 0 1.25rem;
   margin-top: -0.1rem;
@@ -21,25 +21,31 @@
   backdrop-filter: blur(5px);
   margin-left: -0.1rem;
   overflow: hidden;
+  min-height: 0;
 }
 
 .tabs {
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .pageContainer {
   padding: 0;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: left;
   overflow: hidden;
+  flex: 1; // Add this to take available space
+  min-height: 0; // Important for flex children with scroll
 }
 
 .scrollerContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 2rem;
-  overflow-y: scroll;
+  overflow-y: auto;
+  height: 100%;
 }
