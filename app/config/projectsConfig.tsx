@@ -33,6 +33,7 @@ export const projectsConfig = [
         Servicios de terapia y bienestar mental.
       </p>
     ),
+    disabled: true,
     href: "/works",
     category: "paginas_favoritas",
     icon: faStar
@@ -45,6 +46,7 @@ export const projectsConfig = [
     description: (
       <p>Primera versión del portfolio</p>
     ),
+    disabled: true,
     href: "/works",
     category: "demos",
     icon: faPenRuler

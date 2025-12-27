@@ -23,6 +23,7 @@ interface ProjectProps {
     alt: string
     description: string | ReactNode
     button?: string
+    disabled?: boolean
     href: string
     externalLink?: boolean
     icon?: ReactElement | IconDefinition
@@ -37,6 +38,7 @@ const Project = ({ project }: ProjectProps) => {
     projectThumbnail,
     projectDescription,
     iconClass,
+    disabledButton
   } = styles
 
   // Render the appropriate icon
@@ -80,6 +82,7 @@ const Project = ({ project }: ProjectProps) => {
             {project.description}
             <div>
               <Button
+                className={project.disabled ? disabledButton : ""}
                 variant="primary"
                 type="button"
                 href={`${project.href}${!project.externalLink ? `/${project.title}` : ""}`}

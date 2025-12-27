@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import Link from "next/link"
+import Image from "next/image"
 
 // ASSETS
 import { fira } from "@/ui/fonts"
@@ -9,6 +10,7 @@ import {
   faSquareLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
+import logo from "@/assets/img/sitelogo.png"
 
 import { faDownload } from "@fortawesome/free-solid-svg-icons"
 
@@ -28,6 +30,10 @@ const leftSocialLinks = [
     className: "instagram-color",
   },
 ]
+
+const centerLogo = {
+  image: logo,
+}
 
 const rightSocialLinks = [
   {
@@ -52,6 +58,7 @@ export default function Socials() {
     label,
     link,
     socialIcon,
+    websiteLogo,
     left,
     right,
   } = styles
@@ -77,6 +84,10 @@ export default function Socials() {
           ))}
         </div>
 
+        <div className={websiteLogo}>
+          <Image src={logo} alt="KatyaDesign Logo" height={50} priority />
+        </div>
+        
         <div className={`${socialGroup} ${right}`}>
           {rightSocialLinks.map((linkItem) =>
             linkItem.pdf ? (
