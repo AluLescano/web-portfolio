@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import Link from "next/link"
+import Image from "next/image"
 
 // ASSETS
 import { fira } from "@/ui/fonts"
@@ -9,44 +10,68 @@ import {
   faSquareLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
+import logo from "@/assets/img/sitelogo.png"
+
+import { faDownload } from "@fortawesome/free-solid-svg-icons"
 
 import styles from "@/ui/Bars/Socialbar/socials.module.scss"
 
-const socialLinks = [
-    {
-        name: "LinkedIn",
-        href: "https://www.linkedin.com/in/lescanoalessia/",
-        icon: faSquareLinkedin,
-        className: "linkedin-color",
-    },
-    {
-        name: "Instagram",
-        href: "https://www.facebook.com/profile.php?id=100095448946002&locale=es_LA",
-        icon: faInstagram,
-        className: "instagram-color",
-    },
+const leftSocialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/lescanoalessia/",
+    icon: faSquareLinkedin,
+    className: "linkedin-color",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.facebook.com/profile.php?id=100095448946002&locale=es_LA",
+    icon: faInstagram,
+    className: "instagram-color",
+  },
 ]
 
-const gutHib = {
-  name: "@AluLescano",
-  href: "https://github.com/AluLescano",
-  icon: faGithub,
-  className: "github-color"
+const centerLogo = {
+  image: logo,
 }
 
+const rightSocialLinks = [
+  {
+    name: "Descargar CV",
+    href: "CV-LescanoAlessia.pdf",
+    icon: faDownload,
+    pdf: true,
+  },
+  {
+    name: "@AluLescano",
+    href: "https://github.com/AluLescano",
+    icon: faGithub,
+    className: "github-color",
+  },
+]
+
 export default function Socials() {
-  const { socialWrapper, socialGroup, socialItem, label, link, socialIcon, left, right } = styles
-  
+  const {
+    socialWrapper,
+    socialGroup,
+    socialItem,
+    label,
+    link,
+    socialIcon,
+    websiteLogo,
+    left,
+    right,
+  } = styles
+
   return (
     <>
       <div className={socialWrapper}>
-        
         <div className={`${socialGroup} ${left}`}>
           <p className={`${fira.className} ${socialItem} ${label}`}>
             Encuentrame en:
           </p>
-          
-          {socialLinks.map((linkItem) => (
+
+          {leftSocialLinks.map((linkItem) => (
             <Link
               key={linkItem.name}
               href={linkItem.href}
@@ -59,18 +84,37 @@ export default function Socials() {
           ))}
         </div>
 
-         <div className={`${socialGroup} ${right}`}>
-          <Link
-            href={gutHib.href}
-            className={`${fira.className} ${socialItem} ${link} ${gutHib.className} ${styles[gutHib.className]}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {gutHib.name}
-            <FontAwesomeIcon className={socialIcon} icon={gutHib.icon} />
-          </Link>
+        <div className={websiteLogo}>
+          <Image src={logo} alt="KatyaDesign Logo" height={50} priority />
         </div>
         
+        <div className={`${socialGroup} ${right}`}>
+          {rightSocialLinks.map((linkItem) =>
+            linkItem.pdf ? (
+              <a
+                key={linkItem.name}
+                href={linkItem.href}
+                className={`${socialItem} ${link} ${styles[linkItem.className ?? ""]}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {linkItem.name}
+                <FontAwesomeIcon className={socialIcon} icon={linkItem.icon} />
+              </a>
+            ) : (
+              <Link
+                key={linkItem.name}
+                href={linkItem.href}
+                className={`${socialItem} ${link} ${styles[linkItem.className ?? ""]}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {linkItem.name}
+                <FontAwesomeIcon className={socialIcon} icon={linkItem.icon} />
+              </Link>
+            )
+          )}
+        </div>
       </div>
     </>
   )

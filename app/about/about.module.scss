@@ -2,7 +2,7 @@
 
 .layoutContainer {
   display: flex;
-  min-height: 75vh;
+  height: 75vh;
   position: relative;
   margin: 0 1.25rem;
   margin-top: -0.1rem;
@@ -18,22 +18,28 @@
   flex-direction: row;
   background-color: transparent;
   border: 0.1rem solid vars.$soft-gray;
+  backdrop-filter: blur(5px);
   margin-left: -0.1rem;
   overflow: hidden;
+  min-height: 0;
 }
 
 .tabs {
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .pageContainer {
   padding: 0;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: left;
   overflow: hidden;
+  flex: 1; // Add this to take available space
+  min-height: 0; // Important for flex children with scroll
 }
 
 .welcomeSection {
@@ -41,12 +47,12 @@
   flex-direction: column;
   max-width: 100%;
   width: 100%;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   gap: 1rem;
 
   h1 {
     font-size: 1.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: vars.$comment;
   }
 
@@ -61,7 +67,7 @@
   width: fit-content;
   max-width: 100%;
   align-self: center;
-  margin: 1rem 0;
+  margin: 0 0 0.75rem;
   padding: 1rem 1.5rem;
   background-color: rgba(vars.$button-glass, 0.2);
   border: 0.1rem solid vars.$soft-gray;
@@ -121,6 +127,11 @@
     overflow-wrap: break-word;
     color: vars.$white;
   }
+}
+
+.nanoWrapper {
+  height: 100%;
+  width: 100%;
 }
 
 // Responsive adjustments for tablets and smaller devices

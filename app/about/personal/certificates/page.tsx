@@ -5,7 +5,7 @@ import Nano from "@/ui/Nano/nano"
 import styles from "../../about.module.scss"
 
 export default function Certificates() {
-  const { pageContainer } = styles
+  const { pageContainer, nanoWrapper } = styles
 
   const courses = `/**
  * //Certificados y Cursos
@@ -27,7 +27,7 @@ export default function Certificates() {
 
   return (
     <div className={pageContainer}>
-      <div className="hidden md:flex">
+      <div className={`${nanoWrapper} hidden md:flex`}>
         <Nano 
         content={courses} 
         lineNumbers={15}
@@ -35,7 +35,7 @@ export default function Certificates() {
         speed="normal"
       />
       </div>
-      <div className="flex md:hidden">
+      <div className={`${nanoWrapper} flex md:hidden`}>
         <Nano 
         content={courses} 
         className="flex md:hidden"

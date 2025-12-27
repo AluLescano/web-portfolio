@@ -7,7 +7,7 @@ import { fira } from "@/ui/fonts"
 import styles from "../about.module.scss"
 
 export default function Professional() {
-  const { pageContainer } = styles
+  const { pageContainer, nanoWrapper } = styles
 
   const biography = `/**
  * // Trayectoria Profesional
@@ -37,7 +37,7 @@ export default function Professional() {
 
   return (
     <div className={pageContainer}>
-      <div className="hidden md:flex">
+      <div className={`${nanoWrapper} hidden md:flex`}>
         <Nano 
         content={biography} 
         lineNumbers={23}
@@ -45,7 +45,7 @@ export default function Professional() {
         speed="normal"
       />
       </div>
-      <div className="flex md:hidden">
+      <div className={`${nanoWrapper} flex md:hidden`}>
         <Nano 
         content={biography} 
         className="flex md:hidden"

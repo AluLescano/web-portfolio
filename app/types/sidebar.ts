@@ -1,12 +1,19 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { StaticImageData } from "next/image"
+import { ReactElement } from "react"
+
 /**
  * Represents a single item in the sidebar
  * Can be either a file (link) or a folder (container for other items)
  */
-export type SidebarItem = {
+
+export interface SidebarItem {
   type: 'file' | 'folder'
   name: string
   href?: string // Required for files, optional for folders
-  children?: SidebarItem[] // Required for folders, optional for files
+  filterValue?: string 
+  children?: SidebarItem[]  // Required for folders, optional for files
+  icon?: ReactElement | IconDefinition
 }
 
 /**

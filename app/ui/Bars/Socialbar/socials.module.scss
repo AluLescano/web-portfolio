@@ -1,7 +1,7 @@
 @use "../../../assets/scss/variables";
 
 .socialWrapper {
-  height: 3rem;
+  height: 3.75rem;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -48,6 +48,11 @@
       color: variables.$white;
     }
   }
+}
+
+.websiteLogo {
+  padding: 0 1rem;
+  align-self: center;
 }
 
 .left {

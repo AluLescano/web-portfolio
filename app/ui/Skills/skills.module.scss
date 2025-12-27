@@ -1,8 +1,10 @@
 @use "../../assets/scss/variables" as vars;
 
 .container {
-  display: flex;
   width: 70vh;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
   flex-direction: column;
   padding: 1.5rem;
   gap: 1rem;
