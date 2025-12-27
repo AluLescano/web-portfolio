@@ -10,7 +10,7 @@ import {
   faSquareLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
-import logo from "@/assets/img/sitelogo.png"
+import logo from "@/assets/img/sitelogo.svg"
 
 import { faDownload } from "@fortawesome/free-solid-svg-icons"
 

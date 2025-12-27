@@ -11,10 +11,10 @@ import Image, { StaticImageData } from "next/image"
 
 // ASSETS
 import { outfit, fira } from "@/ui/fonts"
-import home from "@/assets/img/background/background-home.png"
-import about from "@/assets/img/background/background-aboutme.png"
-import works from "@/assets/img/background/background-works.png"
-import contact from "@/assets/img/background/background-contactme.png"
+import home from "@/assets/img/background/background-home.webp"
+import about from "@/assets/img/background/background-aboutme.webp"
+import works from "@/assets/img/background/background-works.webp"
+import contact from "@/assets/img/background/background-contact.webp"
 
 import "@/ui/global.css"
 
