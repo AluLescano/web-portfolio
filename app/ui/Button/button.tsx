@@ -1,7 +1,7 @@
-import React, { CSSProperties, ReactNode } from "react"
+import { CSSProperties, ReactNode } from "react"
+import Link from "next/link"
 
 import styles from "./button.module.scss"
-import Link from "next/link"
 
 interface ButtonProps {
   variant?:
@@ -21,6 +21,7 @@ interface ButtonProps {
   target?: "_self" | "_blank" | "_parent" | "_top"
   externalLink?: boolean
   onClick?: () => void
+  disabledButton?: boolean
 }
 
 const Button = ({
@@ -35,6 +36,7 @@ const Button = ({
   target,
   externalLink,
   onClick,
+  disabledButton,
 }: ButtonProps) => {
   const {
     button,
@@ -44,6 +46,7 @@ const Button = ({
     primaryWhite,
     primaryAlt,
     secondaryWhite,
+    disabled,
     medium,
     large,
     long,
@@ -88,7 +91,7 @@ const Button = ({
     )
   }
 
-  const genericClasses = `${button} ${variantClass()} ${sizeClass()} ${widthClass()} ${icon ? withIcon : ""} ${className ?? ""}`
+  const genericClasses = `${button} ${variantClass()} ${sizeClass()} ${widthClass()} ${icon ? withIcon : ""} ${className ?? ""} ${disabledButton ? disabled : ""}`
 
   if (href && !externalLink) {
     return (

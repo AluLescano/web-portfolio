@@ -13,6 +13,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  &.disabled {
+    background-color: transparent;
+    color: vars.$soft-gray;
+    border-color: vars.$ofuscate;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 }
 
 .medium {
@@ -42,15 +50,8 @@
     color: vars.$primary-color;
   }
 
-  &:disabled {
-    background-color: vars.$primary-color;
-    border-color: vars.$primary-color;
-    color: vars.$white;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):focus,
-  &:not(:disabled):active {
+  &:focus,
+  &:active {
     background-color: vars.$white;
     border-color: vars.$white;
     color: vars.$primary-color;
@@ -68,15 +69,8 @@
     color: vars.$white;
   }
 
-  &:disabled {
-    background-color: vars.$white;
-    color: vars.$primary-color;
-    border-color: vars.$white;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):focus,
-  &:not(:disabled):active {
+  &:focus,
+  &:active {
     background-color: vars.$primary-color;
     border-color: vars.$primary-color;
     color: vars.$white;
@@ -94,15 +88,8 @@
     background-color: transparent;
   }
 
-  &:disabled {
-    background-color: vars.$primary-color;
-    border-color: vars.$primary-color;
-    color: vars.$white;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):focus,
-  &:not(:disabled):active {
+  &:focus,
+  &:active {
     border-color: vars.$primary-color;
     color: vars.$primary-color;
     background-color: transparent;
@@ -119,15 +106,8 @@
     color: vars.$white;
   }
 
-  &:disabled {
-    background-color: transparent;
-    border-color: vars.$primary-color;
-    color: vars.$primary-color;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):focus,
-  &:not(:disabled):active {
+  &:focus,
+  &:active {
     background-color: vars.$primary-color;
     border-color: vars.$primary-color;
     color: vars.$white;
@@ -144,15 +124,8 @@
     color: vars.$primary-color;
   }
 
-  &:disabled {
-    background-color: transparent;
-    border-color: vars.$white;
-    color: vars.$white;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):focus,
-  &:not(:disabled):active {
+  &:focus,
+  &:active {
     background-color: vars.$white;
     border-color: vars.$white;
     color: vars.$primary-color;
@@ -170,15 +143,8 @@
     color: vars.$color;
   }
 
-  &:disabled {
-    background-color: vars.$color;
-    border-color: vars.$color;
-    color: vars.$white;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):focus,
-  &:not(:disabled):active {
+  &:focus,
+  &:active {
     background-color: transparent;
     border-color: vars.$color;
     color: vars.$color;

@@ -38,7 +38,6 @@ const Project = ({ project }: ProjectProps) => {
     projectThumbnail,
     projectDescription,
     iconClass,
-    disabledButton
   } = styles
 
   // Render the appropriate icon
@@ -82,12 +81,12 @@ const Project = ({ project }: ProjectProps) => {
             {project.description}
             <div>
               <Button
-                className={project.disabled ? disabledButton : ""}
                 variant="primary"
                 type="button"
                 href={`${project.href}${!project.externalLink ? `/${project.title}` : ""}`}
                 externalLink={project.externalLink}
                 target={project.externalLink ? "_blank" : "_self"}
+                disabledButton={project.disabled ?? undefined}
               >
                 {project.button ?? "ver-proyecto"}
               </Button>
