@@ -83,7 +83,7 @@ const Project = ({ project }: ProjectProps) => {
               <Button
                 variant="primary"
                 type="button"
-                href={`${project.href}${!project.externalLink ? `/${project.title}` : ""}`}
+                href={`${project.href}${!project.externalLink ? project.href == `/contact` ? "" : `/${project.title}` : ""}`}
                 externalLink={project.externalLink}
                 target={project.externalLink ? "_blank" : "_self"}
                 disabledButton={project.disabled ?? undefined}

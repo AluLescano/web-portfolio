@@ -23,7 +23,7 @@ export default function Works() {
 
   return (
     <div className={pageContainer}>
-      <div className={scrollerContainer}>
+      <div className={`${scrollerContainer} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4`}>
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project) => (
             <Project key={project.id} project={project}/>
