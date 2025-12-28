@@ -1,6 +1,7 @@
 @use "../../assets/scss/variables" as vars;
 
 .container {
+  max-width: 20.813rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
