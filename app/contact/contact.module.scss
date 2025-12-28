@@ -1,0 +1,58 @@
+@use "../assets/scss/variables" as vars;
+
+.page {
+  position: relative;
+}
+
+.section {
+  min-height: 75vh;
+  background-color: transparent;
+  border: 0.1rem solid vars.$soft-gray;
+  margin: 0 1.15rem;
+  margin-top: -0.1rem;
+
+  display: flex;
+  flex-direction: row;
+
+  > div:first-of-type {
+    width: 100%;
+    background-color: transparent;
+
+    .blankspace {
+      width: 3rem;
+      height: 100%;
+      border: 0.1rem solid vars.$soft-gray;
+      border-top: none;
+      border-bottom: none;
+      background-color: transparent;
+      backdrop-filter: blur(5px);
+    }
+  }
+
+  > div:last-of-type {
+    width: 150%;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    border-left: 0.1rem solid vars.$soft-gray;
+    border-right: 0.1rem solid vars.$soft-gray;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Responsive: stack vertically on smaller screens
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    > div:first-of-type,
+    > div:last-of-type {
+      width: 100%;
+    }
+
+    > div:last-of-type {
+      border-left: none;
+      border-top: 0.1rem solid vars.$soft-gray;
+    }
+  }
+}
