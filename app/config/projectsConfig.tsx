@@ -52,7 +52,7 @@ export const projectsConfig = [
   },
   {
     id: "4",
-    title: "your-new-page",
+    title: "tu-nueva-pagina",
     thumbnail: blankPage,
     alt: "Empty Page",
     description: (
