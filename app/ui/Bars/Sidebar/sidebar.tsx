@@ -17,7 +17,6 @@ import {
   faChevronDown,
   faChevronRight,
   faFolder,
-  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons"
 
 import styles from "@/ui/Bars/Sidebar/sidebar.module.scss"
