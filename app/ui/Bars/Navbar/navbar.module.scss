@@ -1,4 +1,4 @@
-@use "../../../assets/scss/variables";
+@use "../../../assets/scss/variables" as vars;
 
 .navWrapper {
   display: flex;
@@ -7,32 +7,34 @@
 
   background-color: transparent;
   backdrop-filter: blur(15px);
-  border: 0.1rem solid variables.$soft-gray;
+  border: 0.1rem solid vars.$soft-gray;
   border-radius: 1rem 1rem 0 0;
   margin: 1.25rem;
   margin-bottom: 0;
   padding: 0.75rem 0;
+  position: relative;
+  z-index: 1000;
 }
 
 .siteLogo {
   width: fit-content;
-  padding: 0.9rem 2.5rem;
+  padding: 1rem 2.5rem;
   background-color: transparent;
 
   border-top-left-radius: 1rem;
 
   box-shadow:
-    0 0 5px variables.$neon-blue-50,
-    0 0 15px variables.$neon-blue-50,
-    0 0 20px variables.$neon-blue-50,
-    inset 0 0 5px variables.$neon-blue-50;
+    0 0 5px vars.$neon-blue-50,
+    0 0 15px vars.$neon-blue-50,
+    0 0 20px vars.$neon-blue-50,
+    inset 0 0 5px vars.$neon-blue-50;
 
   text-shadow:
-    0 0 5px variables.$neon-blue-50,
-    0 0 10px variables.$neon-blue-50;
+    0 0 5px vars.$neon-blue-50,
+    0 0 10px vars.$neon-blue-50;
 
   text-decoration: none;
-  color: variables.$neon-blue-50;
+  color: vars.$neon-blue-50;
   font-size: 1.5rem;
   font-weight: 500;
 
@@ -40,8 +42,8 @@
   animation: ease-in-out 0.6s 1 forwards;
 
   &:hover {
-    color: variables.$bg-dark;
-    background-color: variables.$neon-blue-50;
+    color: vars.$bg-dark;
+    background-color: vars.$neon-blue-50;
 
     border-radius: 15rem;
 
@@ -67,8 +69,8 @@
 
   text-decoration: none;
   font-size: 1.25rem;
-  color: variables.$soft-gray;
-  border-left: 0.1rem solid variables.$soft-gray;
+  color: vars.$soft-gray;
+  border-left: 0.1rem solid vars.$soft-gray;
 
   transition: color 0.2s ease-in-out;
 
@@ -79,7 +81,7 @@
     left: 0;
     right: 0;
     bottom: 7px;
-    background-color: variables.$white;
+    background-color: vars.$white;
 
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -89,7 +91,7 @@
   }
 
   &:hover {
-    color: variables.$white;
+    color: vars.$white;
     &::after {
       -webkit-transform: scaleX(0.75);
       transform: scaleX(0.75);
@@ -97,7 +99,7 @@
   }
 
   &:last-child {
-    border-right: 0.1rem solid variables.$soft-gray;
+    border-right: 0.1rem solid vars.$soft-gray;
   }
 }
 
@@ -106,9 +108,95 @@
 }
 
 .navLinkActive {
-  color: variables.$white;
+  color: vars.$white;
 
   &::after {
-    background-color: variables.$neon-blue-100;
+    background-color: vars.$neon-blue-100;
+  }
+}
+
+// ===== RESPONSIVE ADJUSTMENTS =====
+@media (max-width: 1024px) {
+  .navWrapper {
+    margin: 1.25rem 0.5rem 0;
+  }
+  .navMenu {
+    padding: 0 1rem;
+    font-size: 2rem;
+    color: vars.$cyan;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    z-index: 1001;
+    position: relative;
+
+    @media (max-width: 640px) {
+      font-size: 1.5rem;
+      padding: 0 0.75rem;
+    }
+
+    &:hover {
+      color: vars.$white;
+    }
+  }
+
+  // ===== MOBILE MENU MODAL =====
+  .mobileMenuModal {
+    display: none;
+    position: relative;
+    min-height: 75vh;
+    left: 0;
+    right: 0;
+    margin: 0 0.5rem;
+    backdrop-filter: blur(25px);
+    border: 0.1rem solid vars.$soft-gray;
+    border-top: none;
+    border-bottom: none;
+    z-index: 1001;
+    max-height: 0;
+    transition:
+      max-height 0.4s ease-in-out,
+      opacity 0.3s ease-in-out;
+
+    p {
+      margin: 1rem 0 0.5rem;
+      color: vars.$soft-gray;
+      font-size: "0.875rem";
+    }
+  }
+
+  .mobileMenuModalOpen {
+    display: block;
+    max-height: 600px;
+  }
+
+  .mobileMenuContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobileNavLink {
+    display: block;
+    padding: 1rem;
+    color: vars.$soft-gray;
+    text-decoration: none;
+    font-size: 1.125rem;
+    border: 0.1rem solid vars.$soft-gray;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: vars.$white;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: vars.$white;
+    }
+  }
+
+  .mobileNavLinkActive {
+    color: vars.$white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: vars.$neon-blue-100;
+    box-shadow: 0 0 10px rgba(vars.$neon-blue-100, 0.3);
   }
 }

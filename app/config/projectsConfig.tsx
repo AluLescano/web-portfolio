@@ -33,7 +33,7 @@ export const projectsConfig = [
     title: "psico-zephyr",
     thumbnail: psicoZephyr,
     alt: "psico-zephyr website",
-    description: <p>Servicios de terapia y bienestar mental.</p>,
+    description: <p>Servicios de terapia y bienestar mental. <br/> Sesiones Online, Santiago de Chile</p>,
     disabled: true,
     href: "/works",
     category: "paginas_favoritas",
@@ -61,6 +61,7 @@ export const projectsConfig = [
         y hagámoslo realidad.
       </p>
     ),
+    button: "contacto",
     href: "/contact",
     category: "paginas_favoritas",
     icon: faStar,
