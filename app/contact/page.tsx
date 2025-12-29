@@ -8,8 +8,7 @@ export default function Contact() {
   const { section, blankspace } = styles
   return (
     <div className={section}>
-      <div>
-        {" "}
+      <div className="hidden lg:block">
         <div className={blankspace} />
       </div>
       <div>

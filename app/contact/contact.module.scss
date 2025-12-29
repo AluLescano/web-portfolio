@@ -8,7 +8,7 @@
   min-height: 75vh;
   background-color: transparent;
   border: 0.1rem solid vars.$soft-gray;
-  margin: 0 1.15rem;
+  margin: 0 1.25rem;
   margin-top: -0.1rem;
 
   display: flex;
@@ -40,19 +40,18 @@
     justify-content: center;
     align-items: center;
   }
+}
 
-  // Responsive: stack vertically on smaller screens
-  @media (max-width: 768px) {
-    flex-direction: column;
+@media (max-width: 1024px) {
+  .section {
+    margin: 0 0.4rem;
+    margin-top: -0.1rem;
+  }
+}
 
-    > div:first-of-type,
-    > div:last-of-type {
-      width: 100%;
-    }
-
-    > div:last-of-type {
-      border-left: none;
-      border-top: 0.1rem solid vars.$soft-gray;
-    }
+@media (max-width: 768px) {
+  .section {
+    margin: 0 0.4rem;
+    margin-top: -0.1rem;
   }
 }
