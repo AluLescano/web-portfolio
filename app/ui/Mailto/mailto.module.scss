@@ -7,7 +7,6 @@
 }
 
 .modalContainer {
-  max-width: 60vh;
   width: fit-content;
   height: fit-content;
   display: flex;
@@ -99,7 +98,7 @@
       transparent 320deg
     );
     border-radius: 2rem;
-    padding: 11.35rem 14rem;
+    padding: 11.35rem 14.25rem;
     z-index: -1;
     animation: 3s spin linear infinite;
   }
@@ -116,6 +115,28 @@
     }
     to {
       --angle: 360deg;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContainer {
+    &::after,
+    &::before {
+      padding: 12.125rem 7.25rem;
+    }
+  }
+}
+
+
+@media (max-width: 369px) {
+  .modalContainer {
+    width: 100%;
+    margin: 1.5rem;
+
+    &::after,
+    &::before {
+      padding: 12.25rem 9.5rem;
     }
   }
 }

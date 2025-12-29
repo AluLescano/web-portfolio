@@ -84,7 +84,7 @@ export default function AboutLayout({
         <Tab config={aboutTabConfig} />
         <main className={content}>
           {children}
-          {!isMainSection && <SkillsPage />}
+          <div className="hidden xl:block">{!isMainSection && <SkillsPage />}</div>
         </main>
       </aside>
     </div>

@@ -103,3 +103,40 @@
   color: variables.$soft-gray;
   transition: color 0.2s ease-in-out;
 }
+
+.mobileSocials {
+  display: none;
+}
+
+@media (max-width:1024px){
+  .socialWrapper{
+    margin: 0 0.5rem;
+  }
+  
+}
+
+@media (max-width: 767px) {
+  .left,
+  .right {
+    display: none;
+  }
+
+  .socialWrapper {
+    margin: 0 0.5rem;
+    .mobileSocials {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0rem;
+
+      .logoClass {
+        margin: 0 0.75rem;
+      }
+
+      div {
+        display: flex;
+        border-left: 1px solid variables.$soft-gray;
+      }
+    }
+  }
+}

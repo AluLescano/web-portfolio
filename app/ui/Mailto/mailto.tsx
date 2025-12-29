@@ -121,7 +121,7 @@ const ContactInterface = ({
                 )}
                 {copied ? "Copiado!" : "Copiar"}
               </Button>
-              <div>
+              <div className="hidden md:block">
                 <span className={fira.className}>{email}</span>
               </div>
             </div>
