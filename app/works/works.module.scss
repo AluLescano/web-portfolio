@@ -1,7 +1,6 @@
 @use "../assets/scss/variables" as vars;
 
 .layoutContainer {
-  display: flex;
   height: 75vh;
   position: relative;
   margin: 0 1.25rem;
@@ -40,10 +39,29 @@
   overflow: hidden;
   flex: 1; // Add this to take available space
   min-height: 0; // Important for flex children with scroll
+
+  p {
+    color: vars.$soft-gray;
+    font-weight: 450;
+  }
 }
 
 .scrollerContainer {
   padding: 2rem;
   overflow-y: auto;
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    border: 0.1rem solid vars.$soft-gray;
+    margin: -0.1rem 0.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+  }
+
+  .scrollerContainer {
+    max-height: 65vh;
+  }
 }

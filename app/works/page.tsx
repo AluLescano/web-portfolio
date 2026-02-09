@@ -29,8 +29,8 @@ export default function Works() {
             <Project key={project.id} project={project}/>
           ))
         ) : (
-          <p style={{ padding: '2rem', color: 'var(--soft-gray)' }}>
-            No hay proyectos en esta categoría
+          <p>
+            Aún no hay proyectos en esta categoría!
           </p>
         )}
       </div>

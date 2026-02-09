@@ -1,7 +1,6 @@
 @use "../assets/scss/variables" as vars;
 
 .layoutContainer {
-  display: flex;
   height: 75vh;
   position: relative;
   margin: 0 1.25rem;
@@ -40,6 +39,12 @@
   overflow: hidden;
   flex: 1; // Add this to take available space
   min-height: 0; // Important for flex children with scroll
+
+  div p span{
+  font-weight: 500;
+  color: vars.$color;
+  opacity: 0.9;
+}
 }
 
 .welcomeSection {
@@ -162,7 +167,16 @@
   }
 
   .pageContainer {
-    padding: 0 0.75rem;
+    border: 0.1rem solid vars.$soft-gray;
+    margin: -0.1rem 0.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+
+    p {
+      color: vars.$white;
+      line-height: 1.25rem;
+    }
   }
 
   .welcomeSection {

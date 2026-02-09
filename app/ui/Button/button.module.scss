@@ -49,13 +49,6 @@
     border-color: vars.$white;
     color: vars.$primary-color;
   }
-
-  &:focus,
-  &:active {
-    background-color: vars.$white;
-    border-color: vars.$white;
-    color: vars.$primary-color;
-  }
 }
 
 .primaryWhite {
@@ -64,13 +57,6 @@
   border-color: vars.$white;
 
   &:hover {
-    background-color: vars.$primary-color;
-    border-color: vars.$primary-color;
-    color: vars.$white;
-  }
-
-  &:focus,
-  &:active {
     background-color: vars.$primary-color;
     border-color: vars.$primary-color;
     color: vars.$white;
@@ -87,13 +73,6 @@
     color: vars.$primary-color;
     background-color: transparent;
   }
-
-  &:focus,
-  &:active {
-    border-color: vars.$primary-color;
-    color: vars.$primary-color;
-    background-color: transparent;
-  }
 }
 .secondary {
   border-color: vars.$primary-color;
@@ -101,13 +80,6 @@
   background-color: transparent;
 
   &:hover {
-    background-color: vars.$primary-color;
-    border-color: vars.$primary-color;
-    color: vars.$white;
-  }
-
-  &:focus,
-  &:active {
     background-color: vars.$primary-color;
     border-color: vars.$primary-color;
     color: vars.$white;
@@ -123,13 +95,6 @@
     border-color: vars.$white;
     color: vars.$primary-color;
   }
-
-  &:focus,
-  &:active {
-    background-color: vars.$white;
-    border-color: vars.$white;
-    color: vars.$primary-color;
-  }
 }
 
 .tertiary {
@@ -138,13 +103,6 @@
   color: vars.$white;
 
   &:hover {
-    background-color: transparent;
-    border-color: vars.$color;
-    color: vars.$color;
-  }
-
-  &:focus,
-  &:active {
     background-color: transparent;
     border-color: vars.$color;
     color: vars.$color;

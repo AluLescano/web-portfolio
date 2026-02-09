@@ -1,6 +1,7 @@
 "use client"
 
 // CLIENT DEPENDENCIES
+import { useState } from "react"
 import { usePathname } from "next/navigation"
 
 // COMPONENTS
@@ -10,7 +11,7 @@ import Footer from "@/ui/Footer/footer"
 import Image, { StaticImageData } from "next/image"
 
 // ASSETS
-import { outfit, fira } from "@/ui/fonts"
+import { outfit } from "@/ui/fonts"
 import home from "@/assets/img/background/background-home.webp"
 import about from "@/assets/img/background/background-aboutme.webp"
 import works from "@/assets/img/background/background-works.webp"
@@ -31,13 +32,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const pathname = usePathname()
-  // 1. Get all the base paths from bgImages
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Get matching background image
   const basePaths = Object.keys(bgImages)
-  // 2. Sort them by length, descending (e.g., ["/contact", "/about", "/works", "/"])
   basePaths.sort((a, b) => b.length - a.length)
-  // 3. Find the first (longest) base path that the current pathname starts with
   const matchingPath = basePaths.find((path) => pathname.startsWith(path))
-  // 4. Use the matching path to get the image, or default to home
   const bgImage = (
     matchingPath ? bgImages[matchingPath] : home
   ) as StaticImageData
@@ -45,17 +45,22 @@ export default function RootLayout({
   return (
     <html lang="es-la">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <body className={`${outfit.className}`}>
-        <Image
-          src={bgImage}
-          fill
-          className="hidden md:block"
-          alt="Screenshots of the dashboard project showing desktop version"
-        />
-        <Navbar />
-        {children}
-        <Socials />
-        <Footer webname="KatyaDesign" />
+      <body 
+        className={`${outfit.className}`}
+        style={{
+          backgroundImage: `url(${bgImage.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <Navbar onMenuToggle={setMobileMenuOpen} />
+        <div>
+          <div className={mobileMenuOpen ? "hidden lg:block" : ""}>
+            {children}
+          </div>
+          <Socials />
+          <Footer webname="KatyaDesign" />
+        </div>
       </body>
     </html>
   )

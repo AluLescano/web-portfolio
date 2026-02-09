@@ -31,14 +31,37 @@ const leftSocialLinks = [
   },
 ]
 
-const centerLogo = {
-  image: logo,
-}
-
 const rightSocialLinks = [
   {
     name: "Descargar CV",
-    href: "CV-LescanoAlessia.pdf",
+    href: "/CV-LescanoAlessia.pdf",
+    icon: faDownload,
+    pdf: true,
+  },
+  {
+    name: "@AluLescano",
+    href: "https://github.com/AluLescano",
+    icon: faGithub,
+    className: "github-color",
+  },
+]
+
+const mobileSocialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/lescanoalessia/",
+    icon: faSquareLinkedin,
+    className: "linkedin-color",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.facebook.com/profile.php?id=100095448946002&locale=es_LA",
+    icon: faInstagram,
+    className: "instagram-color",
+  },
+  {
+    name: "Descargar CV",
+    href: "/CV-LescanoAlessia.pdf",
     icon: faDownload,
     pdf: true,
   },
@@ -52,6 +75,8 @@ const rightSocialLinks = [
 
 export default function Socials() {
   const {
+    findme,
+    logoClass,
     socialWrapper,
     socialGroup,
     socialItem,
@@ -61,13 +86,14 @@ export default function Socials() {
     websiteLogo,
     left,
     right,
+    mobileSocials,
   } = styles
 
   return (
     <>
       <div className={socialWrapper}>
         <div className={`${socialGroup} ${left}`}>
-          <p className={`${fira.className} ${socialItem} ${label}`}>
+          <p className={`${fira.className} ${socialItem} ${label} ${findme}`}>
             Encuentrame en:
           </p>
 
@@ -84,10 +110,10 @@ export default function Socials() {
           ))}
         </div>
 
-        <div className={websiteLogo}>
+        <div className={`${websiteLogo} hidden md:block`}>
           <Image src={logo} alt="KatyaDesign Logo" height={50} priority />
         </div>
-        
+
         <div className={`${socialGroup} ${right}`}>
           {rightSocialLinks.map((linkItem) =>
             linkItem.pdf ? (
@@ -98,7 +124,8 @@ export default function Socials() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {linkItem.name}
+                <span className="hidden md:block">{linkItem.name}</span>
+                <span className="block md:hidden">CV</span>
                 <FontAwesomeIcon className={socialIcon} icon={linkItem.icon} />
               </a>
             ) : (
@@ -109,11 +136,35 @@ export default function Socials() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {linkItem.name}
+                <span className="hidden md:block">{linkItem.name}</span>
                 <FontAwesomeIcon className={socialIcon} icon={linkItem.icon} />
               </Link>
             )
           )}
+        </div>
+
+        <div className={`${socialGroup} ${mobileSocials}`}>
+          <Image
+            className={logoClass}
+            src={logo}
+            alt="KatyaDesign Logo"
+            width={50}
+            height={50}
+            priority
+          />
+          <div>
+            {mobileSocialLinks.map((linkItem) => (
+            <Link
+              key={linkItem.name}
+              href={linkItem.href}
+              className={`${socialItem} ${link} ${styles[linkItem.className!]}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon className={socialIcon} icon={linkItem.icon} />
+            </Link>
+          ))}
+          </div>
         </div>
       </div>
     </>

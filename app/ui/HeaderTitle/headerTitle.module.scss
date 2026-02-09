@@ -26,3 +26,9 @@
     color: vars.$neon-lilac-50;
     font-weight: 450;
 }
+
+@media (max-width: 742px) {
+    .bash {
+        font-size: 1.25rem;
+    }
+}

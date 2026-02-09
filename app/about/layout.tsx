@@ -76,17 +76,25 @@ export default function AboutLayout({
   const path = usePathname()
   const isMainSection = path === "/about"
   return (
-    <div className={layoutContainer}>
-      <aside className={sidebar}>
-        <Sidebar config={aboutSidebarConfig} />
-      </aside>
-      <aside className={tabs}>
-        <Tab config={aboutTabConfig} />
-        <main className={content}>
-          {children}
-          {!isMainSection && <SkillsPage />}
-        </main>
-      </aside>
-    </div>
+    <>
+      <div className={`flex xl:hidden flex-col`}>
+        <Sidebar config={aboutSidebarConfig} isMobile={true} />
+        {children}
+      </div>
+      <div className={`hidden xl:flex ${layoutContainer}`}>
+        <aside className={sidebar}>
+          <Sidebar config={aboutSidebarConfig} />
+        </aside>
+        <aside className={tabs}>
+          <Tab config={aboutTabConfig} />
+          <main className={content}>
+            {children}
+            <div className="hidden xl:block">
+              {!isMainSection && <SkillsPage />}
+            </div>
+          </main>
+        </aside>
+      </div>
+    </>
   )
 }

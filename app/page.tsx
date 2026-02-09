@@ -14,15 +14,16 @@ export default function Home() {
           preTitle="Hola! Soy"
           title="Alessia Lescano"
           subTitle={
-            <div>{'> '}<TextType
-              text={[
-                "Desarrolladora Frontend", "Diseñadora Web"
-              ]}
-              typingSpeed={75}
-              pauseDuration={1500}
-              showCursor={true}
-              cursorCharacter="_"
-            /></div>
+            <div>
+              {"> "}
+              <TextType
+                text={["Desarrolladora Frontend", "Diseñadora Web", "Programadora"]}
+                typingSpeed={75}
+                pauseDuration={1500}
+                showCursor={true}
+                cursorCharacter="_"
+              />
+            </div>
           }
           className={siteLogo}
         />
