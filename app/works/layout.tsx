@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+
 // CONFIG
 import { worksSidebarConfig } from "@/config/sidebarConfig"
 import { aboutTabConfig } from "@/config/tabConfig"
@@ -14,12 +16,13 @@ import Tab from "@/ui/Bars/Tab/tab"
 import styles from "./works.module.scss"
 
 function WorksLayoutContent({ children }: { children: React.ReactNode }) {
-  const { layoutContainer, sidebar, tabs, content } =
+  const { layoutContainer, sidebar, tabs, content, sidebarOpen, sidebarClosed } =
     styles
   const { activeFilters, toggleFilter } = useFilter()
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false)
 
   return (
-    <>
+    <div className={layoutContainer}>
       <div className={`flex xl:hidden flex-col`}>
         <Sidebar
           config={worksSidebarConfig}
@@ -27,10 +30,13 @@ function WorksLayoutContent({ children }: { children: React.ReactNode }) {
           onFilterChange={toggleFilter}
           activeFilters={activeFilters}
           isMobile={true}
+          onExpandedChange={setIsSidebarExpanded}
         />
-        {children}
+        <div className={`flex-1 ${isSidebarExpanded ? sidebarOpen : sidebarClosed}`}>
+          {children}
+        </div>
       </div>
-      <div className={`hidden xl:flex ${layoutContainer}`}>
+      <div className={`hidden xl:flex`}>
         <aside className={sidebar}>
           <Sidebar
             config={worksSidebarConfig}
@@ -44,7 +50,7 @@ function WorksLayoutContent({ children }: { children: React.ReactNode }) {
           <main className={content}>{children}</main>
         </aside>
       </div>
-    </>
+    </div>
   )
 }
 

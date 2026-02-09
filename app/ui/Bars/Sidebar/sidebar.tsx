@@ -47,6 +47,7 @@ interface CategoryFolderProps {
   mode?: "navigation" | "filter"
   onFilterChange?: (filter: string) => void
   activeFilters?: string[]
+  onOpenChange?: (isOpen: boolean) => void
 }
 
 const CategoryFolder = memo(
@@ -55,14 +56,21 @@ const CategoryFolder = memo(
     mode = "navigation",
     onFilterChange,
     activeFilters = [],
+    onOpenChange,
   }: CategoryFolderProps) => {
     const [isOpen, setIsOpen] = useState(section.defaultOpen ?? true)
+
+    const handleToggle = () => {
+      const newState = !isOpen
+      setIsOpen(newState)
+      onOpenChange?.(newState)
+    }
 
     return (
       <div className={folder}>
         <div
           className={`${fira.className} ${folderToggle}`}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleToggle}
         >
           <FontAwesomeIcon
             className={folderToggleIcon}
@@ -269,6 +277,7 @@ interface SidebarProps {
   isMobile?: boolean
   onFilterChange?: (filter: string) => void
   activeFilters?: string[]
+  onExpandedChange?: (isExpanded: boolean) => void
 }
 
 export default function Sidebar({
@@ -277,7 +286,23 @@ export default function Sidebar({
   isMobile = false,
   onFilterChange,
   activeFilters = [],
+  onExpandedChange,
 }: SidebarProps) {
+  const [openFolders, setOpenFolders] = useState<Set<string>>(
+    new Set(config.sections.filter(s => s.defaultOpen !== false).map(s => s.name))
+  )
+
+  const handleFolderOpenChange = (sectionName: string, isOpen: boolean) => {
+    const newOpenFolders = new Set(openFolders)
+    if (isOpen) {
+      newOpenFolders.add(sectionName)
+    } else {
+      newOpenFolders.delete(sectionName)
+    }
+    setOpenFolders(newOpenFolders)
+    onExpandedChange?.(newOpenFolders.size > 0)
+  }
+
   return (
     <>
       {isMobile ? (
@@ -290,6 +315,7 @@ export default function Sidebar({
                 mode={mode}
                 onFilterChange={onFilterChange}
                 activeFilters={activeFilters}
+                onOpenChange={(isOpen) => handleFolderOpenChange(section.name, isOpen)}
               />
             ))}
           </div>
@@ -305,6 +331,7 @@ export default function Sidebar({
                 mode={mode}
                 onFilterChange={onFilterChange}
                 activeFilters={activeFilters}
+                onOpenChange={(isOpen) => handleFolderOpenChange(section.name, isOpen)}
               />
             ))}
           </div>

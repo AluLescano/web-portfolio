@@ -76,12 +76,12 @@ export default function AboutLayout({
   const path = usePathname()
   const isMainSection = path === "/about"
   return (
-    <>
+    <div className={layoutContainer}>
       <div className={`flex xl:hidden flex-col`}>
         <Sidebar config={aboutSidebarConfig} isMobile={true} />
         {children}
       </div>
-      <div className={`hidden xl:flex ${layoutContainer}`}>
+      <div className={`hidden xl:flex`}>
         <aside className={sidebar}>
           <Sidebar config={aboutSidebarConfig} />
         </aside>
@@ -95,6 +95,6 @@ export default function AboutLayout({
           </main>
         </aside>
       </div>
-    </>
+    </div>
   )
 }

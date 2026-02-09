@@ -47,12 +47,17 @@
 }
 
 .scrollerContainer {
+  max-height: 75vh;
   padding: 2rem;
   overflow-y: auto;
   height: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
+  .layoutContainer {
+    margin: 0 0.75rem;
+  }
+
   .pageContainer {
     border: 0.1rem solid vars.$soft-gray;
     margin: -0.1rem 0.5rem 0;
@@ -62,6 +67,22 @@
   }
 
   .scrollerContainer {
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 1024) {
+  .layoutContainer {
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebarClosed .scrollerContainer {
     max-height: 65vh;
+  }
+
+  .sidebarOpen .scrollerContainer {
+    max-height: 46vh;
   }
 }

@@ -9,8 +9,7 @@
   background-color: transparent;
   backdrop-filter: blur(25px);
   border: 0.1rem solid vars.$soft-gray;
-  margin: 0 1.25rem;
-  margin-top: -0.1rem;
+  margin: -0.1rem 1.25rem 0;
 
   .siteLogo {
     font-size: x-large;
@@ -19,12 +18,17 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .section {
+      margin: -0.1rem 0.5rem 0;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     display: flex;
     justify-content: left;
     align-items: top;
-    margin: 0 0.5rem;
     .siteLogo {
       margin: 10rem;
     }
