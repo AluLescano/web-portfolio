@@ -36,6 +36,7 @@ const {
   iconClass,
   active,
   sidebarContainer,
+  mobileSidebarContainer,
   blankspace,
   menuesContainer,
 } = styles
@@ -84,7 +85,7 @@ const CategoryFolder = memo(
         )}
       </div>
     )
-  }
+  },
 )
 
 CategoryFolder.displayName = "CategoryFolder"
@@ -100,9 +101,10 @@ interface SubFolderProps {
 const SubFolder = memo(
   ({ item, mode, onFilterChange, activeFilters = [] }: SubFolderProps) => {
     const [isOpen, setIsOpen] = useState(true)
-    const isActive = mode === "filter" && item.filterValue 
-      ? activeFilters.includes(item.filterValue) 
-      : false
+    const isActive =
+      mode === "filter" && item.filterValue
+        ? activeFilters.includes(item.filterValue)
+        : false
 
     const handleClick = () => {
       setIsOpen(!isOpen)
@@ -116,7 +118,9 @@ const SubFolder = memo(
 
     return (
       <div>
-        <div className={`${fira.className} ${subFolderToggle} ${isActive ? active : ""}`}>
+        <div
+          className={`${fira.className} ${subFolderToggle} ${isActive ? active : ""}`}
+        >
           {mode === "filter" && item.filterValue && (
             <input
               type="checkbox"
@@ -149,7 +153,7 @@ const SubFolder = memo(
         )}
       </div>
     )
-  }
+  },
 )
 
 SubFolder.displayName = "SubFolder"
@@ -170,7 +174,9 @@ const FileLink = memo(
     const isActive =
       mode === "navigation"
         ? pathname === item.href
-        : item.filterValue ? activeFilters.includes(item.filterValue) : false
+        : item.filterValue
+          ? activeFilters.includes(item.filterValue)
+          : false
 
     // Render the appropriate icon
     const renderIcon = () => {
@@ -209,13 +215,15 @@ const FileLink = memo(
           type="checkbox"
           className={checkboxIcon}
           checked={isActive}
-          onChange={() => item.filterValue && onFilterChange?.(item.filterValue)}
+          onChange={() =>
+            item.filterValue && onFilterChange?.(item.filterValue)
+          }
         />
         {renderIcon()}
         {item.name}
       </label>
     )
-  }
+  },
 )
 
 FileLink.displayName = "FileLink"
@@ -258,6 +266,7 @@ const SidebarItemRenderer = ({
 interface SidebarProps {
   config: SidebarConfig
   mode?: "navigation" | "filter"
+  isMobile?: boolean
   onFilterChange?: (filter: string) => void
   activeFilters?: string[]
 }
@@ -265,23 +274,42 @@ interface SidebarProps {
 export default function Sidebar({
   config,
   mode = "navigation",
+  isMobile = false,
   onFilterChange,
   activeFilters = [],
 }: SidebarProps) {
   return (
-    <div className={sidebarContainer}>
-      <div className={blankspace} />
-      <div className={menuesContainer}>
-        {config.sections.map((section, index) => (
-          <CategoryFolder
-            key={`${section.name}-${index}`}
-            section={section}
-            mode={mode}
-            onFilterChange={onFilterChange}
-            activeFilters={activeFilters}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      {isMobile ? (
+        <div className={mobileSidebarContainer}>
+          <div className={menuesContainer}>
+            {config.sections.map((section, index) => (
+              <CategoryFolder
+                key={`${section.name}-${index}`}
+                section={section}
+                mode={mode}
+                onFilterChange={onFilterChange}
+                activeFilters={activeFilters}
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className={sidebarContainer}>
+          <div className={blankspace} />
+          <div className={menuesContainer}>
+            {config.sections.map((section, index) => (
+              <CategoryFolder
+                key={`${section.name}-${index}`}
+                section={section}
+                mode={mode}
+                onFilterChange={onFilterChange}
+                activeFilters={activeFilters}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   )
 }

@@ -45,14 +45,14 @@ export default function RootLayout({
   return (
     <html lang="es-la">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <body className={`${outfit.className}`}>
-        <Image
-          src={bgImage}
-          fill
-          priority
-          className="hidden md:block"
-          alt="katyadesign backgrounds"
-        />
+      <body 
+        className={`${outfit.className}`}
+        style={{
+          backgroundImage: `url(${bgImage.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <Navbar onMenuToggle={setMobileMenuOpen} />
         <div>
           <div className={mobileMenuOpen ? "hidden lg:block" : ""}>

@@ -27,7 +27,12 @@ const navLinks = [
 
 const contact = { name: "_Contacto", href: "/contact" }
 
-const mobileLinks = [...navLinks, contact]
+const mobileLinks = [
+  ...navLinks.map((link) =>
+    link.name === "_Sobre_mi" ? { ...link, href: "/about/personal" } : link,
+  ),
+  contact,
+]
 
 const {
   navWrapper,
@@ -63,8 +68,6 @@ export default function NavLinks({ onMenuToggle }: NavLinksProps) {
     setOpenNav(value)
     onMenuToggle?.(value)
   }
-
-
 
   return (
     <>
@@ -115,12 +118,12 @@ export default function NavLinks({ onMenuToggle }: NavLinksProps) {
       </nav>
 
       {/* Mobile Menu Modal */}
-      <div className={clsx(mobileMenuModal, { [mobileMenuModalOpen]: openNav })}>
+      <div
+        className={clsx(mobileMenuModal, { [mobileMenuModalOpen]: openNav })}
+      >
         <div className={mobileMenuContent}>
-          <p className={`${fira.className}`}>
-            # navigate:
-          </p>
-          {mobileLinks.map((link) => {
+          <p className={`${fira.className}`}># navegar a:</p>
+          {mobileLinks.map((link, i) => {
             let isActive = false
             if (link.href === "/") {
               isActive = pathname === "/"

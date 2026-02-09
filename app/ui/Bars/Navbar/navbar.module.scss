@@ -115,58 +115,54 @@
   }
 }
 
-  // ===== MOBILE MENU MODAL =====
-  .mobileMenuModal {
-    display: none;
-    position: relative;
-    min-height: 75vh;
-    left: 0;
-    right: 0;
-    margin: 0 0.5rem;
-    backdrop-filter: blur(25px);
-    border: 0.1rem solid vars.$soft-gray;
-    border-top: none;
-    border-bottom: none;
-    z-index: 1001;
-    max-height: 0;
-    transition:
-      max-height 0.4s ease-in-out,
-      opacity 0.3s ease-in-out;
+// ===== MOBILE MENU MODAL =====
+.mobileMenuModal {
+  display: none;
+  position: relative;
+  min-height: 75vh;
+  left: 0;
+  right: 0;
+  margin: 0 0.5rem;
+  backdrop-filter: blur(25px);
+  border: 0.1rem solid vars.$soft-gray;
+  border-top: none;
+  border-bottom: none;
+  z-index: 1001;
+  max-height: 0;
+  transition:
+    max-height 0.4s ease-in-out,
+    opacity 0.3s ease-in-out;
 
-    p {
-      margin: 1rem 0 0.5rem;
-      color: vars.$soft-gray;
-      font-size: 1.25rem;
-    }
+  p {
+    margin: 1rem 0 0.5rem;
+    color: vars.$soft-gray;
+    font-size: 1.25rem;
   }
+}
 
-  .mobileMenuModalOpen {
-    display: block;
-    max-height: 600px;
-  }
+.mobileMenuModalOpen {
+  display: block;
+  max-height: 600px;
+}
 
-  .mobileMenuContent {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.mobileMenuContent {
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  p {
+    font-size: 1rem;
   }
 
   .mobileNavLink {
     display: block;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     color: vars.$soft-gray;
     text-decoration: none;
     font-size: 1.125rem;
-    border: 0.1rem solid vars.$soft-gray;
+    border: 0.01rem solid vars.$soft-gray;
     border-radius: 0.5rem;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      color: vars.$white;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-color: vars.$white;
-    }
   }
 
   .mobileNavLinkActive {
@@ -175,6 +171,7 @@
     border-color: vars.$neon-blue-100;
     box-shadow: 0 0 10px rgba(vars.$neon-blue-100, 0.3);
   }
+}
 
 // ===== RESPONSIVE ADJUSTMENTS =====
 @media (max-width: 1024px) {

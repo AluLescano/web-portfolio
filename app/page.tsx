@@ -17,7 +17,7 @@ export default function Home() {
             <div>
               {"> "}
               <TextType
-                text={["Desarrolladora Frontend", "Diseñadora Web"]}
+                text={["Desarrolladora Frontend", "Diseñadora Web", "Programadora"]}
                 typingSpeed={75}
                 pauseDuration={1500}
                 showCursor={true}

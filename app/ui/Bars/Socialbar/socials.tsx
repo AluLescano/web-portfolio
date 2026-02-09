@@ -34,7 +34,7 @@ const leftSocialLinks = [
 const rightSocialLinks = [
   {
     name: "Descargar CV",
-    href: "CV-LescanoAlessia.pdf",
+    href: "/CV-LescanoAlessia.pdf",
     icon: faDownload,
     pdf: true,
   },
@@ -61,7 +61,7 @@ const mobileSocialLinks = [
   },
   {
     name: "Descargar CV",
-    href: "CV-LescanoAlessia.pdf",
+    href: "/CV-LescanoAlessia.pdf",
     icon: faDownload,
     pdf: true,
   },

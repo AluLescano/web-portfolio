@@ -33,23 +33,30 @@ export default function Professional() {
  *
  */`
 
-// Cuando tenga mucho texto, convertir en scroller
+  // Cuando tenga mucho texto, convertir en scroller
 
   return (
     <div className={pageContainer}>
       <div className={`${nanoWrapper} hidden md:flex`}>
-        <Nano 
-        content={biography} 
-        lineNumbers={23}
-        animate
-        speed="normal"
-      />
+        <Nano content={biography} lineNumbers={23} animate speed="normal" />
       </div>
-      <div className={`${nanoWrapper} flex md:hidden`}>
-        <Nano 
-        content={biography} 
-        className="flex md:hidden"
-      />
+      <div className={`flex xl:hidden flex-col gap-2`}>
+        <p className={`${fira.className}`}>
+          Mi carrera profesional está marcada por una evolución constante en el
+          ecosistema de React. En Allaria+, aplico tecnologías como Next.js y
+          TypeScript para resolver desafíos complejos en el desarrollo frontend.
+
+        </p>
+        <p className={`${fira.className}`}>
+          Esta experiencia se complementa con mi faceta emprendedora en Katya
+          Design, donde desde hace dos años diseño soluciones web únicas para
+          clientes independientes.
+        </p>
+        <p className={`${fira.className}`}>
+          También cuento con una fuerte base
+          académica; como Profesora Adscripta en la UNGS, desarrollando
+          habilidades clave en mentoría y trabajo en equipo.
+        </p>
       </div>
     </div>
   )

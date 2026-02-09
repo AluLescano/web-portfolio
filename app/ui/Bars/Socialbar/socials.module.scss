@@ -127,14 +127,16 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin: 0 0rem;
 
       .logoClass {
-        margin: 0 0.75rem;
+        margin: 0 auto;
       }
 
       div {
         display: flex;
+        align-self: stretch;
         border-left: 1px solid variables.$soft-gray;
       }
     }
