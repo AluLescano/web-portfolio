@@ -36,7 +36,7 @@ function WorksLayoutContent({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </div>
-      <div className={`hidden xl:flex`}>
+      <div className={`hidden xl:flex h-full`}>
         <aside className={sidebar}>
           <Sidebar
             config={worksSidebarConfig}

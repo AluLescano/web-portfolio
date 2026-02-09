@@ -81,7 +81,7 @@ export default function AboutLayout({
         <Sidebar config={aboutSidebarConfig} isMobile={true} />
         {children}
       </div>
-      <div className={`hidden xl:flex`}>
+      <div className={`hidden xl:flex h-full`}>
         <aside className={sidebar}>
           <Sidebar config={aboutSidebarConfig} />
         </aside>
