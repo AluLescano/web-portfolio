@@ -59,7 +59,7 @@ export default function RootLayout({
             {children}
           </div>
           <Socials />
-          <Footer webname="KatyaDesign" />
+          <div className="hidden lg:block"><Footer webname="KatyaDesign" /></div>
         </div>
       </body>
     </html>
