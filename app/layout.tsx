@@ -1,29 +1,47 @@
-"use client"
+import type { Metadata } from "next"
 
-// CLIENT DEPENDENCIES
-import { useState } from "react"
-import { usePathname } from "next/navigation"
-
-// COMPONENTS
-import Navbar from "@/ui/Bars/Navbar/navbar"
-import Socials from "@/ui/Bars/Socialbar/socials"
-import Footer from "@/ui/Footer/footer"
-import Image, { StaticImageData } from "next/image"
-
-// ASSETS
 import { outfit } from "@/ui/fonts"
-import home from "@/assets/img/background/background-home.webp"
-import about from "@/assets/img/background/background-aboutme.webp"
-import works from "@/assets/img/background/background-works.webp"
-import contact from "@/assets/img/background/background-contact.webp"
+import LayoutShell from "@/ui/LayoutShell/layoutShell"
 
 import "@/ui/global.css"
 
-const bgImages: Record<string, StaticImageData> = {
-  "/": home,
-  "/about": about,
-  "/works": works,
-  "/contact": contact,
+export const metadata: Metadata = {
+  title: {
+    default: "KatyaDesign | Alessia Lescano — Desarrolladora Frontend",
+    template: "%s | KatyaDesign",
+  },
+  description:
+    "Portfolio de Alessia Lescano — Desarrolladora Frontend especializada en React, Next.js y TypeScript. Diseño web freelance en Buenos Aires, Argentina.",
+  keywords: [
+    "desarrolladora frontend",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "diseño web",
+    "freelance",
+    "Buenos Aires",
+    "portfolio",
+  ],
+  authors: [{ name: "Alessia Lescano" }],
+  creator: "Alessia Lescano",
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "KatyaDesign",
+    title: "KatyaDesign | Alessia Lescano — Desarrolladora Frontend",
+    description:
+      "Portfolio de Alessia Lescano — Desarrolladora Frontend especializada en React, Next.js y TypeScript.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KatyaDesign | Alessia Lescano",
+    description:
+      "Desarrolladora Frontend especializada en React, Next.js y TypeScript.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -31,36 +49,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const pathname = usePathname()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  // Get matching background image
-  const basePaths = Object.keys(bgImages)
-  basePaths.sort((a, b) => b.length - a.length)
-  const matchingPath = basePaths.find((path) => pathname.startsWith(path))
-  const bgImage = (
-    matchingPath ? bgImages[matchingPath] : home
-  ) as StaticImageData
-
   return (
-    <html lang="es-la">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <body 
-        className={`${outfit.className}`}
-        style={{
-          backgroundImage: `url(${bgImage.src})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <Navbar onMenuToggle={setMobileMenuOpen} />
-        <div>
-          <div className={mobileMenuOpen ? "hidden lg:block" : ""}>
-            {children}
-          </div>
-          <Socials />
-          <div className="hidden lg:block"><Footer webname="KatyaDesign" /></div>
-        </div>
+    <html lang="es">
+      <body className={outfit.className}>
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   )

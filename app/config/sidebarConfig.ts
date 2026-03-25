@@ -7,26 +7,26 @@ import { faStar, faMobileScreen, faPenRuler } from "@fortawesome/free-solid-svg-
 export const aboutSidebarConfig: SidebarConfig = {
   sections: [
     {
-      name: "info-personal",
+      name: "_info_personal",
       defaultOpen: true,
       items: [
         {
           type: "file",
-          name: "bio",
+          name: "_bio",
           href: "/about/personal",
         },
         {
           type: "folder",
-          name: "educacion",
+          name: "_educacion",
           children: [
             {
               type: "file",
-              name: "estudios",
+              name: "_estudios",
               href: "/about/personal/study",
             },
             {
               type: "file",
-              name: "certificados",
+              name: "_certificados",
               href: "/about/personal/certificates",
             },
           ],
@@ -34,12 +34,12 @@ export const aboutSidebarConfig: SidebarConfig = {
       ],
     },
     {
-      name: "info-profesional",
+      name: "_info_profesional",
       defaultOpen: true,
       items: [
         {
           type: "file",
-          name: "trayectoria",
+          name: "_trayectoria",
           href: "/about/professional",
         },
       ],
@@ -53,24 +53,25 @@ export const aboutSidebarConfig: SidebarConfig = {
 export const worksSidebarConfig: SidebarConfig = {
   sections: [
     {
-      name: "proyectos",
+      name: "_proyectos",
       defaultOpen: true,
       items: [
         {
           type: "file",
-          name: "paginas_favoritas",
+          name: "_paginas_favoritas",
           filterValue: "paginas_favoritas",
           icon: faStar,
         },
+        // Hidden until Phase 4 (weather app) ships:
+        // {
+        //   type: "file",
+        //   name: "_apps",
+        //   filterValue: "apps",
+        //   icon: faMobileScreen,
+        // },
         {
           type: "file",
-          name: "apps",
-          filterValue: "apps",
-          icon: faMobileScreen,
-        },
-        {
-          type: "file",
-          name: "demos",
+          name: "_demos",
           filterValue: "demos",
           icon: faPenRuler,
         },

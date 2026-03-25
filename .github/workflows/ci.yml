@@ -1,0 +1,82 @@
+# ============================================================
+# CI — Continuous Integration
+# ============================================================
+# This workflow runs automatically on every push to main and
+# on every pull request targeting main.
+#
+# HOW IT WORKS:
+# 1. GitHub detects the trigger event (push or PR)
+# 2. It spins up a fresh Ubuntu VM (free, ~2000 min/month)
+# 3. It runs the steps below in order
+# 4. If ANY step fails, the whole workflow fails and you get
+#    a red X on the commit/PR — so you catch issues before deploy
+#
+# WHERE TO SEE RESULTS:
+# - Go to your repo on GitHub → "Actions" tab
+# - Each run shows green checkmark (pass) or red X (fail)
+# - Click into a run to see logs for each step
+# ============================================================
+
+name: CI
+
+# ---- TRIGGERS ----
+# "on" defines WHEN this workflow runs.
+# push to main     = after you merge or push directly
+# pull_request     = when a PR is opened/updated against main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# ---- JOBS ----
+# A workflow can have multiple jobs. We use one job with
+# sequential steps. Each step only runs if the previous passed.
+jobs:
+  check:
+    # The VM to run on. ubuntu-latest is the most common choice.
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      # This clones your repo into the VM so the next steps
+      # can access your files.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      # This installs Node on the VM. The "cache: npm" part
+      # saves node_modules between runs so installs are faster.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Step 3: Install dependencies
+      # Same as running npm install on your machine.
+      # "ci" is stricter than "install" — it uses the exact
+      # versions from package-lock.json (no surprise upgrades).
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: TypeScript type-check
+      # Runs the TypeScript compiler WITHOUT emitting files.
+      # If you have type errors anywhere, this step fails.
+      - name: Type check
+        run: npx tsc --noEmit
+
+      # Step 5: Lint
+      # Runs ESLint across the project. Catches code quality
+      # issues, unused imports, etc.
+      - name: Lint
+        run: npm run lint
+
+      # Step 6: Build
+      # Runs the full production build. This catches:
+      # - Broken imports
+      # - Pages that fail to render
+      # - CSS/SCSS compilation errors
+      # If this passes, your site is deployable.
+      - name: Build
+        run: npm run build

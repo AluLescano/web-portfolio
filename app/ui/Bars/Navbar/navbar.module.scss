@@ -9,8 +9,7 @@
   backdrop-filter: blur(15px);
   border: 0.1rem solid vars.$soft-gray;
   border-radius: 1rem 1rem 0 0;
-  margin: 1.25rem;
-  margin-bottom: 0;
+  margin: 0 1.25rem;
   padding: 0.75rem 0;
   position: relative;
   z-index: 1000;
@@ -59,7 +58,7 @@
     width: 8rem;
 
     opacity: 0;
-    transition: opacity 100 ease;
+    transition: opacity 100ms ease;
   }
 }
 
@@ -176,7 +175,7 @@
 // ===== RESPONSIVE ADJUSTMENTS =====
 @media (max-width: 1024px) {
   .navWrapper {
-    margin: 1.25rem 0.5rem 0;
+    margin:  0 0.5rem;
   }
   .navMenu {
     padding: 0 1rem;
