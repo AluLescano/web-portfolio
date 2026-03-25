@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 /* Viewport + full-height base */
 html,
@@ -20,10 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0; /* prevent flex overflow */
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 :root {

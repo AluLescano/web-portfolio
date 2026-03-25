@@ -65,7 +65,7 @@
 
 .iconContainer {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
   color: vars.$bg-light;

@@ -11,49 +11,48 @@ export default function PersonalBio() {
 
   const biography = `/**
  * [Sobre_KatyaDesign]
- * Bienvenido a mi porfolio!
+ * Bienvenido a mi portfolio!
  *
- * [Título] Técnica Universitaria en Informática.
- * [Título_Pendiente] Licenciatura en Sistemas.
- * [Programación]
- * Manejo HTML, CSS, SCSS, Javascript, Typescript,
- * React + Vite, NextJs, TailwindCSS y Bootstrap.
+ * [Quien_es_Alessia]
+ * Soy desarrolladora frontend en Allaria+,
+ * donde trabajo con React, Next.js y TypeScript
+ * construyendo interfaces para productos reales.
  *
- * [Quien_es_Alessia] Soy una persona curiosa,
- * Tengo interés en desarrollo web. 
- * Me gusta trabajar en equipo, me considero 
- * proactiva, siempre buscando expandir 
- * mi conocimiento.
+ * En paralelo, diseño sitios web como freelance
+ * bajo [KatyaDesign] — cada proyecto empieza
+ * desde la necesidad del cliente, no desde
+ * una plantilla.
  *
- * [Actualmente] me encuentro formándome sobre 
- * React y NextJs, con planes en CapacitorJs y 
- * ElectronJs para desarrollo de aplicaciones.
- *
+ * [Actualmente]
+ * Expandiendo mi stack hacia desarrollo de
+ * aplicaciones móviles con Capacitor y
+ * arquitectura de componentes reutilizables.
  *
  */`
 
   return (
     <div className={pageContainer}>
       <div className={`${nanoWrapper} hidden xl:flex`}>
-        <Nano content={biography} lineNumbers={22} animate speed="normal" />
+        <Nano content={biography} lineNumbers={18} animate speed="normal" />
       </div>
       <div className={`flex xl:hidden flex-col gap-2`}>
         <p className={`${fira.className}`}>
-          Soy Alessia Lescano, técnica universitaria en informática. Estudiante
-          en licenciatura en sistemas.
+          Soy desarrolladora frontend en Allaria+, donde trabajo con React,
+          Next.js y TypeScript construyendo interfaces para productos reales.
         </p>
         <p className={`${fira.className}`}>
-          Manejo HTML, CSS, SCSS, Javascript, Typescript, React + Vite, NextJs,
-          TailwindCSS y Bootstrap.
+          En paralelo, diseño sitios web como freelance bajo KatyaDesign —
+          cada proyecto empieza desde la necesidad del cliente, no desde una
+          plantilla.
         </p>
         <p className={`${fira.className}`}>
-          Soy una persona curiosa, tengo interés en desarrollo web. Me gusta
-          trabajar en equipo, me considero proactiva, siempre buscando expandir
-          mi conocimiento.
+          Me interesa el punto donde el diseño se encuentra con la lógica.
+          Disfruto convertir ideas en interfaces que se sientan bien de usar
+          — y bien de leer por dentro.
         </p>
         <p className={`${fira.className}`}>
-          Actualmente me encuentro formándome sobre React y NextJs, con planes en
-          CapacitorJs y ElectronJs para desarrollo de aplicaciones.
+          Actualmente expandiendo mi stack hacia desarrollo de aplicaciones
+          móviles con Capacitor y arquitectura de componentes reutilizables.
         </p>
       </div>
     </div>

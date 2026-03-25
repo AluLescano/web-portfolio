@@ -25,7 +25,7 @@ const leftSocialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://www.facebook.com/profile.php?id=100095448946002&locale=es_LA",
+    href: "https://www.instagram.com/katya.design_",
     icon: faInstagram,
     className: "instagram-color",
   },

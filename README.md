@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KatyaDesign — Portfolio
+
+Personal portfolio built as a code editor / file explorer interface. Browse sections like files, read content in a Nano-style terminal, and navigate through tabs and sidebars — all wrapped in a glassmorphism dark theme.
+
+**Live site:** [katyadesign.com.ar](https://katyadesign.com.ar)
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | SCSS Modules + Tailwind CSS v4 |
+| Icons | FontAwesome |
+| Fonts | Outfit, Fira Code, Comic Neue (via `next/font`) |
+| Deployment | Vercel |
+
+## Project Structure
+
+```
+app/
+├── assets/          # Images, SCSS variables
+├── components/      # Standalone components (TextType)
+├── config/          # Sidebar, tab, and project configs
+├── context/         # React Context (filter system)
+├── types/           # TypeScript type definitions
+├── ui/              # UI components
+│   ├── Bars/        # Navbar, Sidebar, Socialbar, Tab
+│   ├── Button/
+│   ├── Footer/
+│   ├── HeaderTitle/
+│   ├── LayoutShell/ # Client-side layout wrapper
+│   ├── Mailto/      # Contact email interface
+│   ├── Nano/        # Terminal-style text editor
+│   ├── Projects/    # Project card component
+│   ├── SectionLayout/ # Shared section layout
+│   └── Skills/
+├── about/           # About section (bio, studies, certificates, career)
+├── contact/         # Contact page
+├── works/           # Projects section with filtering
+└── layout.tsx       # Root layout (Server Component + metadata)
+```
+
+## Key Features
+
+- **File explorer navigation** — Sidebar with collapsible folders, tab bar with close buttons
+- **Nano editor** — Content rendered as a code editor with line numbers and typing animation
+- **Filter system** — Works section filterable by category via checkboxes
+- **Responsive** — Desktop shows the full IDE layout; mobile adapts to a simplified view
+- **SSR + Static generation** — All pages prerendered at build time
+- **SEO ready** — Full metadata, Open Graph, and Twitter card tags
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000) to see the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is personal and not open for redistribution. Feel free to use it as reference or inspiration.
