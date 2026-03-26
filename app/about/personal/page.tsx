@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
+
 // COMPONENTS
 import Nano from "@/ui/Nano/nano"
+
+export const metadata: Metadata = {
+  title: "Sobre Mí — Bio",
+  description:
+    "Desarrolladora Frontend en Allaria+ y diseñadora web freelance. Especializada en React, Next.js y TypeScript. About me — frontend developer based in Buenos Aires.",
+}
 
 // ASSETS
 import { fira } from "@/ui/fonts"

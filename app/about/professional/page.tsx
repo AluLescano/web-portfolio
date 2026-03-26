@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
+
 // COMPONENTS
 import Nano from "@/ui/Nano/nano"
+
+export const metadata: Metadata = {
+  title: "Trayectoria Profesional",
+  description:
+    "Experiencia como Desarrolladora Frontend en Allaria+, diseñadora web freelance en KatyaDesign, y Profesora Adscripta en UNGS. Professional experience — frontend developer, freelance web designer.",
+}
 
 // ASSETS
 import { fira } from "@/ui/fonts"
