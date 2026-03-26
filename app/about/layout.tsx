@@ -27,7 +27,7 @@ const SkillsPage = () => {
       title: "Tecnologías que conozco o estoy aprendiendo",
       profile: ProfilePicture,
       username: "AluLescano",
-      createdDate: "Actualizado hace 28 días",
+      createdDate: "Actualizado hace 3 meses",
       skills: [
         { icon: faCode, name: "Typescript" },
         { icon: faSass, name: "SASS" },
