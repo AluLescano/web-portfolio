@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
+
 // COMPONENTS
 import Nano from "@/ui/Nano/nano"
+
+export const metadata: Metadata = {
+  title: "Estudios",
+  description:
+    "Técnica Universitaria en Informática y estudiante de Licenciatura en Sistemas en UNGS, Buenos Aires. Education — Computer Science degree from UNGS Argentina.",
+}
 
 // ASSETS
 import { fira } from "@/ui/fonts"

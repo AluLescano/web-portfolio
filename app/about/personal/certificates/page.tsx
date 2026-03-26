@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
+
 // COMPONENTS
 import Nano from "@/ui/Nano/nano"
+
+export const metadata: Metadata = {
+  title: "Certificados",
+  description:
+    "Certificación B2 en inglés (First Certificate) y tutorías universitarias en programación. Certifications — B2 English, university programming mentorship.",
+}
 
 // ASSETS
 import { fira } from "@/ui/fonts"
