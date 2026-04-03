@@ -70,6 +70,23 @@ export const metadata: Metadata = {
   },
 }
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Alessia Lescano",
+  url: "https://katyadesign.com.ar",
+  jobTitle: "Desarrolladora Frontend & Diseñadora Web",
+  worksFor: {
+    "@type": "Organization",
+    name: "Allaria+",
+  },
+  knowsAbout: ["React", "Next.js", "TypeScript", "Frontend Development", "Web Design"],
+  sameAs: [
+    "https://github.com/AluLescano",
+    "https://www.linkedin.com/in/lescanoalessia/",
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,6 +94,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </head>
       <body className={outfit.className}>
         <LayoutShell>{children}</LayoutShell>
       </body>

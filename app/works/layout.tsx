@@ -1,33 +1,11 @@
-"use client"
+import type { Metadata } from "next"
 
-import { useState } from "react"
+import WorksLayoutClient from "./WorksLayoutClient"
 
-import { worksSidebarConfig } from "@/config/sidebarConfig"
-import { worksTabConfig } from "@/config/tabConfig"
-
-import { FilterProvider, useFilter } from "@/context/FilterContext"
-import SectionLayout from "@/ui/SectionLayout/sectionLayout"
-
-import styles from "./works.module.scss"
-
-function WorksLayoutContent({ children }: { children: React.ReactNode }) {
-  const { sidebarOpen, sidebarClosed } = styles
-  const { activeFilters, toggleFilter } = useFilter()
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false)
-
-  return (
-    <SectionLayout
-      sidebarConfig={worksSidebarConfig}
-      tabConfig={worksTabConfig}
-      sidebarMode="filter"
-      onFilterChange={toggleFilter}
-      activeFilters={activeFilters}
-      onSidebarExpandedChange={setIsSidebarExpanded}
-      mobileContentClassName={`flex-1 ${isSidebarExpanded ? sidebarOpen : sidebarClosed}`}
-    >
-      {children}
-    </SectionLayout>
-  )
+export const metadata: Metadata = {
+  title: "Trabajos",
+  description:
+    "Portfolio de proyectos de Alessia Lescano — sitios web, landing pages y aplicaciones desarrolladas con React, Next.js y TypeScript. Works — web design & development projects.",
 }
 
 export default function WorksLayout({
@@ -35,9 +13,5 @@ export default function WorksLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <FilterProvider>
-      <WorksLayoutContent>{children}</WorksLayoutContent>
-    </FilterProvider>
-  )
+  return <WorksLayoutClient>{children}</WorksLayoutClient>
 }
