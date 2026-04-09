@@ -1,5 +1,9 @@
 import { SidebarConfig } from "@/types/sidebar"
-import { faStar, faMobileScreen, faPenRuler } from "@fortawesome/free-solid-svg-icons"
+import {
+  faStar,
+  faMobileScreen,
+  faPenRuler,
+} from "@fortawesome/free-solid-svg-icons"
 
 /**
  * Configuration for the "About" section sidebar
@@ -62,19 +66,19 @@ export const worksSidebarConfig: SidebarConfig = {
           filterValue: "paginas_favoritas",
           icon: faStar,
         },
-        // Hidden until Phase 4 (weather app) ships:
-        // {
-        //   type: "file",
-        //   name: "_apps",
-        //   filterValue: "apps",
-        //   icon: faMobileScreen,
-        // },
+        /* // Hidden until Phase 4 (weather app) ships:
+        {
+          type: "file",
+          name: "_apps",
+          filterValue: "apps",
+          icon: faMobileScreen,
+        },
         {
           type: "file",
           name: "_demos",
           filterValue: "demos",
           icon: faPenRuler,
-        },
+        }, */
       ],
     },
   ],
