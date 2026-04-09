@@ -15,24 +15,21 @@ export default function Works() {
   const { pageContainer, scrollerContainer } = styles
   const { activeFilters } = useFilter()
 
-  const filteredProjects = activeFilters.length > 0
-    ? projectsConfig.filter(project => 
-        activeFilters.some(filter => project.category?.startsWith(filter))
-      )
-    : projectsConfig
+  const filteredProjects =
+    activeFilters.length > 0
+      ? projectsConfig.filter((project) =>
+          activeFilters.some((filter) => project.category?.startsWith(filter)),
+        )
+      : projectsConfig
 
   return (
     <div className={pageContainer}>
-      <div className={`${scrollerContainer} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center`}>
-        {filteredProjects.length > 0 ? (
-          filteredProjects.map((project) => (
-            <Project key={project.id} project={project}/>
-          ))
-        ) : (
-          <p>
-            Aún no hay proyectos en esta categoría!
-          </p>
-        )}
+      <div
+        className={`${scrollerContainer} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center`}
+      >
+        {filteredProjects.map((project) => (
+          <Project key={project.id} project={project} />
+        ))}
       </div>
     </div>
   )

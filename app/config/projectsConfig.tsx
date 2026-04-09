@@ -1,7 +1,7 @@
 // ASSETS
 import almarentals from "@/assets/img/website-thumbnails/website-almarentals.webp"
-import psicoZephyr from "@/assets/img/website-thumbnails/website-psico-zephyr.webp"
-import katyadesign from "@/assets/img/website-thumbnails/website-katyadesign.webp"
+import almarena from "@/assets/img/website-thumbnails/website-almarena.webp"
+import psiconodo from "@/assets/img/website-thumbnails/website-psiconodo.webp"
 import blankPage from "@/assets/img/website-thumbnails/thumbnail-blank.webp"
 
 import {
@@ -14,11 +14,23 @@ import {
  * Configuration for the Project Thumbnails in Works Section
  */
 export const projectsConfig = [
-  {
+/*   {
     id: "1",
+    title: "almarena",
+    thumbnail: almarena,
+    alt: "Almarena",
+    description: <p>Landing para cadena de Hoteles en Argentina.</p>,
+    button: "ver-pagina",
+    href: "https://almarena.com.ar",
+    externalLink: true,
+    category: "paginas_favoritas",
+    icon: faStar,
+  },
+  {
+    id: "2",
     title: "almarentals",
     thumbnail: almarentals,
-    alt: "Almarena - Almarentals",
+    alt: "Almarentals",
     description: (
       <p>Landing para cadena de Departamentos en Buenos Aires, Argentina.</p>
     ),
@@ -27,28 +39,23 @@ export const projectsConfig = [
     externalLink: true,
     category: "paginas_favoritas",
     icon: faStar,
-  },
-  {
-    id: "2",
-    title: "psico-zephyr",
-    thumbnail: psicoZephyr,
-    alt: "psico-zephyr website",
-    description: <p>Servicios de terapia y bienestar mental. <br/> Sesiones Online, Santiago de Chile</p>,
-    disabled: true,
-    href: "/works",
-    category: "paginas_favoritas",
-    icon: faStar,
-  },
+  }, */
   {
     id: "3",
-    title: "katyaDesign-v1",
-    thumbnail: katyadesign,
-    alt: "KatyaDesign v1",
-    description: <p>Primera versión del portfolio</p>,
-    disabled: true,
-    href: "/works",
-    category: "demos",
-    icon: faPenRuler,
+    title: "psiconodo",
+    thumbnail: psiconodo,
+    alt: "Psiconodo - Felipe Rios",
+    description: (
+      <p>
+        Servicios de terapia y bienestar mental. <br /> Sesiones Online,
+        Santiago de Chile
+      </p>
+    ),
+    button: "ver-pagina",
+    href: "https://psiconodo.vercel.com",
+    externalLink: true,
+    category: "paginas_favoritas",
+    icon: faStar,
   },
   {
     id: "4",
