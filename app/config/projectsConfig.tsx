@@ -52,7 +52,7 @@ export const projectsConfig = [
       </p>
     ),
     button: "ver-pagina",
-    href: "https://psiconodo.vercel.com",
+    href: "https://psiconodo.vercel.app",
     externalLink: true,
     category: "paginas_favoritas",
     icon: faStar,
