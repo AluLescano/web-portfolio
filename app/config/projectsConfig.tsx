@@ -14,12 +14,12 @@ import {
  * Configuration for the Project Thumbnails in Works Section
  */
 export const projectsConfig = [
-/*   {
+  {
     id: "1",
     title: "almarena",
     thumbnail: almarena,
     alt: "Almarena",
-    description: <p>Landing para cadena de Hoteles en Argentina.</p>,
+    description: <p>Landing page para cadena hotelera argentina. Refactoring y desarrollo front-end realizado en Allaria+.</p>,
     button: "ver-pagina",
     href: "https://almarena.com.ar",
     externalLink: true,
@@ -32,14 +32,14 @@ export const projectsConfig = [
     thumbnail: almarentals,
     alt: "Almarentals",
     description: (
-      <p>Landing para cadena de Departamentos en Buenos Aires, Argentina.</p>
+      <p>Landing page para alquiler de departamentos en Buenos Aires. Refactoring y desarrollo front-end realizado en Allaria+.</p>
     ),
     button: "ver-pagina",
     href: "https://almarentals.com.ar",
     externalLink: true,
     category: "paginas_favoritas",
     icon: faStar,
-  }, */
+  },
   {
     id: "3",
     title: "psiconodo",
